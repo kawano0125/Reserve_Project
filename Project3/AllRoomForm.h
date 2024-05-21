@@ -34,6 +34,10 @@ namespace Project3 {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Button^ b_Search;
+	protected:
+
+	protected:
 
 	private:
 		/// <summary>
@@ -48,11 +52,30 @@ namespace Project3 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"AllRoomForm";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->b_Search = (gcnew System::Windows::Forms::Button());
+			this->SuspendLayout();
+			// 
+			// b_Search
+			// 
+			this->b_Search->Font = (gcnew System::Drawing::Font(L"‚l‚r ‚o–¾’©", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->b_Search->Location = System::Drawing::Point(12, 31);
+			this->b_Search->Name = L"b_Search";
+			this->b_Search->Size = System::Drawing::Size(144, 48);
+			this->b_Search->TabIndex = 0;
+			this->b_Search->Text = L"ŒŸõ";
+			this->b_Search->UseVisualStyleBackColor = true;
+			// 
+			// AllRoomForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(594, 527);
+			this->Controls->Add(this->b_Search);
+			this->Name = L"AllRoomForm";
+			this->Text = L"AllRoomForm";
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
 	};
