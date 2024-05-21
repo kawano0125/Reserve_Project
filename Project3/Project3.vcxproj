@@ -118,10 +118,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AllRoomForm.cpp" />
     <ClCompile Include="LoginForm.cpp" />
+    <ClCompile Include="MydataForm.cpp" />
+    <ClCompile Include="NewEntryForm.cpp" />
+    <ClCompile Include="ReserveForm.cpp" />
+    <ClCompile Include="RoomDatailForm.cpp" />
+    <ClCompile Include="SearchForm.cpp" />
+    <ClCompile Include="SearchResultForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AllRoomForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="LoginForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MydataForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="NewEntryForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ReserveForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="RoomDatailForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="SearchForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="SearchResultForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
