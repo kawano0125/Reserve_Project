@@ -34,6 +34,24 @@ namespace Project3 {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Button^ b_SearchResultReturn;
+	private: System::Windows::Forms::Button^ b_Room1;
+	private: System::Windows::Forms::Button^ b_Room2;
+	private: System::Windows::Forms::Button^ b_Room4;
+	protected:
+
+	protected:
+
+
+
+	private: System::Windows::Forms::Button^ b_Room3;
+	private: System::Windows::Forms::Button^ b_Room5;
+	private: System::Windows::Forms::Button^ b_Room6;
+
+
+
+	private: System::Windows::Forms::Label^ l_Search;
+
 
 	private:
 		/// <summary>
@@ -48,18 +66,108 @@ namespace Project3 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->b_SearchResultReturn = (gcnew System::Windows::Forms::Button());
+			this->b_Room1 = (gcnew System::Windows::Forms::Button());
+			this->b_Room2 = (gcnew System::Windows::Forms::Button());
+			this->b_Room4 = (gcnew System::Windows::Forms::Button());
+			this->b_Room3 = (gcnew System::Windows::Forms::Button());
+			this->b_Room5 = (gcnew System::Windows::Forms::Button());
+			this->b_Room6 = (gcnew System::Windows::Forms::Button());
+			this->l_Search = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
+			// 
+			// b_SearchResultReturn
+			// 
+			this->b_SearchResultReturn->Location = System::Drawing::Point(12, 12);
+			this->b_SearchResultReturn->Name = L"b_SearchResultReturn";
+			this->b_SearchResultReturn->Size = System::Drawing::Size(109, 50);
+			this->b_SearchResultReturn->TabIndex = 0;
+			this->b_SearchResultReturn->Text = L"button1";
+			this->b_SearchResultReturn->UseVisualStyleBackColor = true;
+			// 
+			// b_Room1
+			// 
+			this->b_Room1->Location = System::Drawing::Point(114, 139);
+			this->b_Room1->Name = L"b_Room1";
+			this->b_Room1->Size = System::Drawing::Size(162, 77);
+			this->b_Room1->TabIndex = 1;
+			this->b_Room1->Text = L"Room1";
+			this->b_Room1->UseVisualStyleBackColor = true;
+			// 
+			// b_Room2
+			// 
+			this->b_Room2->Location = System::Drawing::Point(345, 139);
+			this->b_Room2->Name = L"b_Room2";
+			this->b_Room2->Size = System::Drawing::Size(162, 77);
+			this->b_Room2->TabIndex = 2;
+			this->b_Room2->Text = L"Room2";
+			this->b_Room2->UseVisualStyleBackColor = true;
+			// 
+			// b_Room4
+			// 
+			this->b_Room4->Location = System::Drawing::Point(345, 235);
+			this->b_Room4->Name = L"b_Room4";
+			this->b_Room4->Size = System::Drawing::Size(162, 77);
+			this->b_Room4->TabIndex = 3;
+			this->b_Room4->Text = L"Room4";
+			this->b_Room4->UseVisualStyleBackColor = true;
+			// 
+			// b_Room3
+			// 
+			this->b_Room3->Location = System::Drawing::Point(114, 235);
+			this->b_Room3->Name = L"b_Room3";
+			this->b_Room3->Size = System::Drawing::Size(162, 77);
+			this->b_Room3->TabIndex = 4;
+			this->b_Room3->Text = L"Room3";
+			this->b_Room3->UseVisualStyleBackColor = true;
+			// 
+			// b_Room5
+			// 
+			this->b_Room5->Location = System::Drawing::Point(114, 339);
+			this->b_Room5->Name = L"b_Room5";
+			this->b_Room5->Size = System::Drawing::Size(162, 77);
+			this->b_Room5->TabIndex = 5;
+			this->b_Room5->Text = L"Room5";
+			this->b_Room5->UseVisualStyleBackColor = true;
+			// 
+			// b_Room6
+			// 
+			this->b_Room6->Location = System::Drawing::Point(345, 339);
+			this->b_Room6->Name = L"b_Room6";
+			this->b_Room6->Size = System::Drawing::Size(162, 77);
+			this->b_Room6->TabIndex = 6;
+			this->b_Room6->Text = L"Room6";
+			this->b_Room6->UseVisualStyleBackColor = true;
+			// 
+			// l_Search
+			// 
+			this->l_Search->AutoSize = true;
+			this->l_Search->Location = System::Drawing::Point(36, 101);
+			this->l_Search->Name = L"l_Search";
+			this->l_Search->Size = System::Drawing::Size(67, 15);
+			this->l_Search->TabIndex = 7;
+			this->l_Search->Text = L"ŒŸõŒ‹‰Ê";
 			// 
 			// SearchResultForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(804, 482);
+			this->ClientSize = System::Drawing::Size(802, 496);
+			this->Controls->Add(this->l_Search);
+			this->Controls->Add(this->b_Room6);
+			this->Controls->Add(this->b_Room5);
+			this->Controls->Add(this->b_Room3);
+			this->Controls->Add(this->b_Room4);
+			this->Controls->Add(this->b_Room2);
+			this->Controls->Add(this->b_Room1);
+			this->Controls->Add(this->b_SearchResultReturn);
 			this->Name = L"SearchResultForm";
 			this->Text = L"SearchResultForm";
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+
+};
 }
