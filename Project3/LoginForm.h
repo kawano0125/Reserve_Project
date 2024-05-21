@@ -1,5 +1,11 @@
 #pragma once
-
+#include "AllroomForm.h"
+#include "NewEntryForm.h"
+#include "MydataForm.h"
+#include "SearchForm.h"
+#include "SearchResultForm.h"
+#include "RoomDatailForm.h"
+#include "ReserveForm.h"
 namespace Project3 {
 
 	using namespace System;
@@ -48,11 +54,17 @@ namespace Project3 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"LoginForm";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->SuspendLayout();
+			// 
+			// LoginForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(282, 253);
+			this->Name = L"LoginForm";
+			this->Text = L"LoginForm";
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
 	};
