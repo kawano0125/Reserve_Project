@@ -82,7 +82,7 @@ namespace Project3 {
 			this->b_SearchResultReturn->Name = L"b_SearchResultReturn";
 			this->b_SearchResultReturn->Size = System::Drawing::Size(109, 50);
 			this->b_SearchResultReturn->TabIndex = 0;
-			this->b_SearchResultReturn->Text = L"button1";
+			this->b_SearchResultReturn->Text = L"–ß‚é";
 			this->b_SearchResultReturn->UseVisualStyleBackColor = true;
 			// 
 			// b_Room1
