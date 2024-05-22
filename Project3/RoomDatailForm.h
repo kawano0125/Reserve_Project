@@ -121,6 +121,8 @@ namespace Project3 {
 			this->Controls->Add(this->l_Roomdata);
 			this->Controls->Add(this->b_Reserve);
 			this->Controls->Add(this->b_RoomdataReturn);
+			this->MaximizeBox = false;
+			this->MinimizeBox = false;
 			this->Name = L"RoomDatailForm";
 			this->Text = L"RoomDatailForm";
 			this->ResumeLayout(false);
