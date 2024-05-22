@@ -165,6 +165,9 @@
     <EmbeddedResource Include="RoomDatailForm.resx">
       <DependentUpon>RoomDatailForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReserveForm.resx">
+      <DependentUpon>ReserveForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SearchForm.resx">
       <DependentUpon>SearchForm.h</DependentUpon>
     </EmbeddedResource>
