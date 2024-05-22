@@ -145,6 +145,7 @@
     <ClInclude Include="ReserveForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="RoomDatailForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -171,6 +172,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\..\Desktop\研修報告書\チーム開発演習\背景.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Project3.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
