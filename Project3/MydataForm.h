@@ -101,20 +101,20 @@ namespace Project3 {
 			// 
 			// b_Detail
 			// 
-			this->b_Detail->Location = System::Drawing::Point(89, 449);
+			this->b_Detail->Location = System::Drawing::Point(183, 478);
 			this->b_Detail->Name = L"b_Detail";
 			this->b_Detail->Size = System::Drawing::Size(75, 23);
 			this->b_Detail->TabIndex = 2;
-			this->b_Detail->Text = L"詳細";
+			this->b_Detail->Text = L"予約詳細";
 			this->b_Detail->UseVisualStyleBackColor = true;
 			// 
 			// b_Delete
 			// 
-			this->b_Delete->Location = System::Drawing::Point(404, 449);
+			this->b_Delete->Location = System::Drawing::Point(311, 478);
 			this->b_Delete->Name = L"b_Delete";
 			this->b_Delete->Size = System::Drawing::Size(75, 23);
 			this->b_Delete->TabIndex = 3;
-			this->b_Delete->Text = L"削除";
+			this->b_Delete->Text = L"予約削除";
 			this->b_Delete->UseVisualStyleBackColor = true;
 			// 
 			// l_name
@@ -129,16 +129,18 @@ namespace Project3 {
 			// l_Namedata
 			// 
 			this->l_Namedata->AutoSize = true;
-			this->l_Namedata->Location = System::Drawing::Point(277, 99);
+			this->l_Namedata->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->l_Namedata->Location = System::Drawing::Point(276, 94);
 			this->l_Namedata->Name = L"l_Namedata";
-			this->l_Namedata->Size = System::Drawing::Size(41, 15);
+			this->l_Namedata->Size = System::Drawing::Size(61, 20);
 			this->l_Namedata->TabIndex = 5;
-			this->l_Namedata->Text = L"name";
+			this->l_Namedata->Text = L"Name";
 			// 
 			// l_Password
 			// 
 			this->l_Password->AutoSize = true;
-			this->l_Password->Location = System::Drawing::Point(144, 161);
+			this->l_Password->Location = System::Drawing::Point(138, 161);
 			this->l_Password->Name = L"l_Password";
 			this->l_Password->Size = System::Drawing::Size(72, 15);
 			this->l_Password->TabIndex = 6;
@@ -147,18 +149,20 @@ namespace Project3 {
 			// l_Passworddata
 			// 
 			this->l_Passworddata->AutoSize = true;
-			this->l_Passworddata->Location = System::Drawing::Point(277, 161);
+			this->l_Passworddata->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->l_Passworddata->Location = System::Drawing::Point(276, 156);
 			this->l_Passworddata->Name = L"l_Passworddata";
-			this->l_Passworddata->Size = System::Drawing::Size(35, 15);
+			this->l_Passworddata->Size = System::Drawing::Size(97, 20);
 			this->l_Passworddata->TabIndex = 7;
-			this->l_Passworddata->Text = L"pass";
+			this->l_Passworddata->Text = L"Password";
 			// 
 			// clb_Reservedata
 			// 
 			this->clb_Reservedata->FormattingEnabled = true;
-			this->clb_Reservedata->Location = System::Drawing::Point(147, 267);
+			this->clb_Reservedata->Location = System::Drawing::Point(127, 206);
 			this->clb_Reservedata->Name = L"clb_Reservedata";
-			this->clb_Reservedata->Size = System::Drawing::Size(120, 89);
+			this->clb_Reservedata->Size = System::Drawing::Size(325, 225);
 			this->clb_Reservedata->TabIndex = 8;
 			// 
 			// MydataForm
@@ -176,7 +180,7 @@ namespace Project3 {
 			this->Controls->Add(this->b_Logout);
 			this->Controls->Add(this->b_MydataReturn);
 			this->Name = L"MydataForm";
-			this->Text = L"MydataForm";
+			this->Text = L"マイページ";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
