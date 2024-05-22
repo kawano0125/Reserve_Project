@@ -1,4 +1,7 @@
 #pragma once
+#include"search.h"
+#include"MydataForm.h"
+#include"LoginForm.h"
 
 namespace Project3 {
 
@@ -98,6 +101,7 @@ namespace Project3 {
 			this->b_Search->TabIndex = 0;
 			this->b_Search->Text = L"検索";
 			this->b_Search->UseVisualStyleBackColor = true;
+			this->b_Search->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Search_Click);
 			// 
 			// b_Mydata
 			// 
@@ -115,6 +119,7 @@ namespace Project3 {
 			this->b_Mydata->TabIndex = 1;
 			this->b_Mydata->Text = L"マイページ";
 			this->b_Mydata->UseVisualStyleBackColor = true;
+			this->b_Mydata->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Mydata_Click);
 			// 
 			// b_Logout
 			// 
@@ -132,6 +137,7 @@ namespace Project3 {
 			this->b_Logout->TabIndex = 2;
 			this->b_Logout->Text = L"ログアウト";
 			this->b_Logout->UseVisualStyleBackColor = true;
+			this->b_Logout->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Logout_Click);
 			// 
 			// b_Room1
 			// 
@@ -258,5 +264,17 @@ namespace Project3 {
 
 		}
 #pragma endregion
-	};
+	private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ e) {
+		SearchForm^ frm = gcnew SearchForm();
+		frm->ShowDialog();
+	}
+private: System::Void b_Mydata_Click(System::Object^ sender, System::EventArgs^ e) {
+	MydataForm^ frm = gcnew MydataForm();
+	frm->ShowDialog();
+}
+private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ e) {
+	LoginForm^ frm = gcnew LoginForm();
+	frm->ShowDialog();
+}
+};
 }
