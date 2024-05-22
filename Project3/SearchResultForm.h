@@ -78,7 +78,9 @@ namespace Project3 {
 			// 
 			// b_SearchResultReturn
 			// 
-			this->b_SearchResultReturn->Location = System::Drawing::Point(12, 12);
+			this->b_SearchResultReturn->Font = (gcnew System::Drawing::Font(L"ÇlÇr ÉSÉVÉbÉN", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->b_SearchResultReturn->Location = System::Drawing::Point(26, 12);
 			this->b_SearchResultReturn->Name = L"b_SearchResultReturn";
 			this->b_SearchResultReturn->Size = System::Drawing::Size(109, 50);
 			this->b_SearchResultReturn->TabIndex = 0;
@@ -87,7 +89,9 @@ namespace Project3 {
 			// 
 			// b_Room1
 			// 
-			this->b_Room1->Location = System::Drawing::Point(114, 139);
+			this->b_Room1->Font = (gcnew System::Drawing::Font(L"ÇlÇr ÉSÉVÉbÉN", 28.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->b_Room1->Location = System::Drawing::Point(74, 154);
 			this->b_Room1->Name = L"b_Room1";
 			this->b_Room1->Size = System::Drawing::Size(162, 77);
 			this->b_Room1->TabIndex = 1;
@@ -96,7 +100,9 @@ namespace Project3 {
 			// 
 			// b_Room2
 			// 
-			this->b_Room2->Location = System::Drawing::Point(345, 139);
+			this->b_Room2->Font = (gcnew System::Drawing::Font(L"ÇlÇr ÉSÉVÉbÉN", 28.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->b_Room2->Location = System::Drawing::Point(316, 154);
 			this->b_Room2->Name = L"b_Room2";
 			this->b_Room2->Size = System::Drawing::Size(162, 77);
 			this->b_Room2->TabIndex = 2;
@@ -105,7 +111,9 @@ namespace Project3 {
 			// 
 			// b_Room4
 			// 
-			this->b_Room4->Location = System::Drawing::Point(345, 235);
+			this->b_Room4->Font = (gcnew System::Drawing::Font(L"ÇlÇr ÉSÉVÉbÉN", 28.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->b_Room4->Location = System::Drawing::Point(316, 258);
 			this->b_Room4->Name = L"b_Room4";
 			this->b_Room4->Size = System::Drawing::Size(162, 77);
 			this->b_Room4->TabIndex = 3;
@@ -114,7 +122,9 @@ namespace Project3 {
 			// 
 			// b_Room3
 			// 
-			this->b_Room3->Location = System::Drawing::Point(114, 235);
+			this->b_Room3->Font = (gcnew System::Drawing::Font(L"ÇlÇr ÉSÉVÉbÉN", 28.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->b_Room3->Location = System::Drawing::Point(74, 258);
 			this->b_Room3->Name = L"b_Room3";
 			this->b_Room3->Size = System::Drawing::Size(162, 77);
 			this->b_Room3->TabIndex = 4;
@@ -123,7 +133,9 @@ namespace Project3 {
 			// 
 			// b_Room5
 			// 
-			this->b_Room5->Location = System::Drawing::Point(114, 339);
+			this->b_Room5->Font = (gcnew System::Drawing::Font(L"ÇlÇr ÉSÉVÉbÉN", 28.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->b_Room5->Location = System::Drawing::Point(74, 369);
 			this->b_Room5->Name = L"b_Room5";
 			this->b_Room5->Size = System::Drawing::Size(162, 77);
 			this->b_Room5->TabIndex = 5;
@@ -132,7 +144,9 @@ namespace Project3 {
 			// 
 			// b_Room6
 			// 
-			this->b_Room6->Location = System::Drawing::Point(345, 339);
+			this->b_Room6->Font = (gcnew System::Drawing::Font(L"ÇlÇr ÉSÉVÉbÉN", 28.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->b_Room6->Location = System::Drawing::Point(316, 369);
 			this->b_Room6->Name = L"b_Room6";
 			this->b_Room6->Size = System::Drawing::Size(162, 77);
 			this->b_Room6->TabIndex = 6;
@@ -142,7 +156,7 @@ namespace Project3 {
 			// l_Search
 			// 
 			this->l_Search->AutoSize = true;
-			this->l_Search->Location = System::Drawing::Point(36, 101);
+			this->l_Search->Location = System::Drawing::Point(186, 12);
 			this->l_Search->Name = L"l_Search";
 			this->l_Search->Size = System::Drawing::Size(67, 15);
 			this->l_Search->TabIndex = 7;
@@ -152,7 +166,7 @@ namespace Project3 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(802, 496);
+			this->ClientSize = System::Drawing::Size(582, 553);
 			this->Controls->Add(this->l_Search);
 			this->Controls->Add(this->b_Room6);
 			this->Controls->Add(this->b_Room5);
@@ -162,7 +176,7 @@ namespace Project3 {
 			this->Controls->Add(this->b_Room1);
 			this->Controls->Add(this->b_SearchResultReturn);
 			this->Name = L"SearchResultForm";
-			this->Text = L"SearchResultForm";
+			this->Text = L"åüçıåãâ ";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
