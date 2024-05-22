@@ -162,6 +162,9 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MydataForm.resx">
+      <DependentUpon>MydataForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SearchForm.resx">
       <DependentUpon>SearchForm.h</DependentUpon>
     </EmbeddedResource>
