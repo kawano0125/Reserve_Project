@@ -1,5 +1,8 @@
 #pragma once
-
+#include"search.h"
+#include"MydataForm.h"
+#include"LoginForm.h"
+#include"RoomDatailForm.h"
 namespace Project3 {
 
 	using namespace System;
@@ -98,6 +101,7 @@ namespace Project3 {
 			this->b_Search->TabIndex = 0;
 			this->b_Search->Text = L"検索";
 			this->b_Search->UseVisualStyleBackColor = true;
+			this->b_Search->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Search_Click);
 			// 
 			// b_Mydata
 			// 
@@ -115,6 +119,7 @@ namespace Project3 {
 			this->b_Mydata->TabIndex = 1;
 			this->b_Mydata->Text = L"マイページ";
 			this->b_Mydata->UseVisualStyleBackColor = true;
+			this->b_Mydata->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Mydata_Click);
 			// 
 			// b_Logout
 			// 
@@ -132,6 +137,7 @@ namespace Project3 {
 			this->b_Logout->TabIndex = 2;
 			this->b_Logout->Text = L"ログアウト";
 			this->b_Logout->UseVisualStyleBackColor = true;
+			this->b_Logout->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Logout_Click);
 			// 
 			// b_Room1
 			// 
@@ -149,6 +155,7 @@ namespace Project3 {
 			this->b_Room1->TabIndex = 3;
 			this->b_Room1->Text = L"Room1";
 			this->b_Room1->UseVisualStyleBackColor = true;
+			this->b_Room1->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room1_Click);
 			// 
 			// b_Room2
 			// 
@@ -167,6 +174,7 @@ namespace Project3 {
 			this->b_Room2->TabIndex = 4;
 			this->b_Room2->Text = L"Room2";
 			this->b_Room2->UseVisualStyleBackColor = true;
+			this->b_Room2->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room2_Click);
 			// 
 			// b_Room4
 			// 
@@ -184,6 +192,7 @@ namespace Project3 {
 			this->b_Room4->TabIndex = 6;
 			this->b_Room4->Text = L"Room4";
 			this->b_Room4->UseVisualStyleBackColor = true;
+			this->b_Room4->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room4_Click);
 			// 
 			// b_Room3
 			// 
@@ -201,6 +210,7 @@ namespace Project3 {
 			this->b_Room3->TabIndex = 5;
 			this->b_Room3->Text = L"Room3";
 			this->b_Room3->UseVisualStyleBackColor = true;
+			this->b_Room3->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room3_Click);
 			// 
 			// b_Room6
 			// 
@@ -218,6 +228,7 @@ namespace Project3 {
 			this->b_Room6->TabIndex = 8;
 			this->b_Room6->Text = L"Room6";
 			this->b_Room6->UseVisualStyleBackColor = true;
+			this->b_Room6->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room6_Click);
 			// 
 			// b_Room5
 			// 
@@ -235,6 +246,7 @@ namespace Project3 {
 			this->b_Room5->TabIndex = 7;
 			this->b_Room5->Text = L"Room5";
 			this->b_Room5->UseVisualStyleBackColor = true;
+			this->b_Room5->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room5_Click);
 			// 
 			// AllRoomForm
 			// 
@@ -258,5 +270,49 @@ namespace Project3 {
 
 		}
 #pragma endregion
-	};
+	private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ e) {
+		SearchForm^ frm = gcnew SearchForm();
+		frm->ShowDialog();
+	}
+private: System::Void b_Mydata_Click(System::Object^ sender, System::EventArgs^ e) {
+	MydataForm^ frm = gcnew MydataForm();
+	frm->ShowDialog();
+}
+private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ e) {
+	LoginForm^ frm = gcnew LoginForm();
+	frm->ShowDialog();
+}
+	  public:int RoomNumber = 0;
+
+private: System::Void b_Room1_Click(System::Object^ sender, System::EventArgs^ e) {
+	int RoomNumber = 1;
+	RoomDatailForm^ frm = gcnew RoomDatailForm();
+	frm->ShowDialog();
+}
+private: System::Void b_Room2_Click(System::Object^ sender, System::EventArgs^ e) {
+	int RoomNumber = 2;
+	RoomDatailForm^ frm = gcnew RoomDatailForm();
+	frm->ShowDialog();
+}
+private: System::Void b_Room3_Click(System::Object^ sender, System::EventArgs^ e) {
+	int RoomNumber = 3;
+	RoomDatailForm^ frm = gcnew RoomDatailForm();
+	frm->ShowDialog();
+}
+private: System::Void b_Room4_Click(System::Object^ sender, System::EventArgs^ e) {
+	int RoomNumber = 4;
+	RoomDatailForm^ frm = gcnew RoomDatailForm();
+	frm->ShowDialog();
+}
+private: System::Void b_Room5_Click(System::Object^ sender, System::EventArgs^ e) {
+	int RoomNumber = 5;
+	RoomDatailForm^ frm = gcnew RoomDatailForm();
+	frm->ShowDialog();
+}
+private: System::Void b_Room6_Click(System::Object^ sender, System::EventArgs^ e) {
+	int RoomNumber = 6;
+	RoomDatailForm^ frm = gcnew RoomDatailForm();
+	frm->ShowDialog();
+}
+};
 }
