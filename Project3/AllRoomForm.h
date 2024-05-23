@@ -3,6 +3,7 @@
 #include"MydataForm.h"
 #include"LoginForm.h"
 #include"RoomDatailForm.h"
+#include"PublicData.h"
 namespace Project3 {
 
 	using namespace System;
@@ -270,13 +271,13 @@ namespace Project3 {
 
 		}
 #pragma endregion
-	private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ e) {
 		SearchForm^ frm = gcnew SearchForm();
+		MydataForm^ frm1 = gcnew MydataForm();
+	private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ e) {
 		frm->ShowDialog();
 	}
 private: System::Void b_Mydata_Click(System::Object^ sender, System::EventArgs^ e) {
-	MydataForm^ frm = gcnew MydataForm();
-	frm->ShowDialog();
+	frm1->ShowDialog();
 }
 private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ e) {
 	LoginForm^ frm = gcnew LoginForm();
@@ -287,31 +288,37 @@ private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void b_Room1_Click(System::Object^ sender, System::EventArgs^ e) {
 	int RoomNumber = 1;
 	RoomDatailForm^ frm = gcnew RoomDatailForm();
+	frm->l_Roomdata->Text = "会議室1　収容人数６名　モニター完備（各自PC持ち込み)";
 	frm->ShowDialog();
 }
 private: System::Void b_Room2_Click(System::Object^ sender, System::EventArgs^ e) {
 	int RoomNumber = 2;
 	RoomDatailForm^ frm = gcnew RoomDatailForm();
+	frm->l_Roomdata->Text = "会議室2　収容人数10名　モニター&接続PC完備";
 	frm->ShowDialog();
 }
 private: System::Void b_Room3_Click(System::Object^ sender, System::EventArgs^ e) {
 	int RoomNumber = 3;
 	RoomDatailForm^ frm = gcnew RoomDatailForm();
+	frm->l_Roomdata->Text = "大会議室　収容人数15名　モニター&接続PC完備";
 	frm->ShowDialog();
 }
 private: System::Void b_Room4_Click(System::Object^ sender, System::EventArgs^ e) {
 	int RoomNumber = 4;
 	RoomDatailForm^ frm = gcnew RoomDatailForm();
+	frm->l_Roomdata->Text = "大ホール　収容人数50名　モニター&接続PC、マイク完備";
 	frm->ShowDialog();
 }
 private: System::Void b_Room5_Click(System::Object^ sender, System::EventArgs^ e) {
 	int RoomNumber = 5;
 	RoomDatailForm^ frm = gcnew RoomDatailForm();
+	frm->l_Roomdata->Text = "小会議室　収容人数4名　ホワイトボード完備";
 	frm->ShowDialog();
 }
 private: System::Void b_Room6_Click(System::Object^ sender, System::EventArgs^ e) {
 	int RoomNumber = 6;
 	RoomDatailForm^ frm = gcnew RoomDatailForm();
+	frm->l_Roomdata->Text = "PC室　個室　MacPC完備　Adobe使用可能";
 	frm->ShowDialog();
 }
 };
