@@ -282,7 +282,7 @@ private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ 
 	LoginForm^ frm = gcnew LoginForm();
 	frm->ShowDialog();
 }
-	  public:int RoomNumber = 0;
+	  
 
 private: System::Void b_Room1_Click(System::Object^ sender, System::EventArgs^ e) {
 	int RoomNumber = 1;
