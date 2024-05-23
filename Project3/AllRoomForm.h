@@ -154,7 +154,7 @@ namespace Project3 {
 			this->b_Room1->Name = L"b_Room1";
 			this->b_Room1->Size = System::Drawing::Size(200, 70);
 			this->b_Room1->TabIndex = 3;
-			this->b_Room1->Text = L"Room1";
+			this->b_Room1->Text = L"‰ï‹cŽº1";
 			this->b_Room1->UseVisualStyleBackColor = true;
 			this->b_Room1->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room1_Click);
 			// 
@@ -173,7 +173,7 @@ namespace Project3 {
 			this->b_Room2->Name = L"b_Room2";
 			this->b_Room2->Size = System::Drawing::Size(200, 70);
 			this->b_Room2->TabIndex = 4;
-			this->b_Room2->Text = L"Room2";
+			this->b_Room2->Text = L"‰ï‹cŽº2";
 			this->b_Room2->UseVisualStyleBackColor = true;
 			this->b_Room2->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room2_Click);
 			// 
@@ -191,7 +191,7 @@ namespace Project3 {
 			this->b_Room4->Name = L"b_Room4";
 			this->b_Room4->Size = System::Drawing::Size(200, 70);
 			this->b_Room4->TabIndex = 6;
-			this->b_Room4->Text = L"Room4";
+			this->b_Room4->Text = L"‘åƒz[ƒ‹";
 			this->b_Room4->UseVisualStyleBackColor = true;
 			this->b_Room4->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room4_Click);
 			// 
@@ -209,7 +209,7 @@ namespace Project3 {
 			this->b_Room3->Name = L"b_Room3";
 			this->b_Room3->Size = System::Drawing::Size(200, 70);
 			this->b_Room3->TabIndex = 5;
-			this->b_Room3->Text = L"Room3";
+			this->b_Room3->Text = L"‘å‰ï‹cŽº";
 			this->b_Room3->UseVisualStyleBackColor = true;
 			this->b_Room3->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room3_Click);
 			// 
@@ -227,7 +227,7 @@ namespace Project3 {
 			this->b_Room6->Name = L"b_Room6";
 			this->b_Room6->Size = System::Drawing::Size(200, 70);
 			this->b_Room6->TabIndex = 8;
-			this->b_Room6->Text = L"Room6";
+			this->b_Room6->Text = L"PCŽº";
 			this->b_Room6->UseVisualStyleBackColor = true;
 			this->b_Room6->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room6_Click);
 			// 
@@ -245,7 +245,7 @@ namespace Project3 {
 			this->b_Room5->Name = L"b_Room5";
 			this->b_Room5->Size = System::Drawing::Size(200, 70);
 			this->b_Room5->TabIndex = 7;
-			this->b_Room5->Text = L"Room5";
+			this->b_Room5->Text = L"¬‰ï‹cŽº";
 			this->b_Room5->UseVisualStyleBackColor = true;
 			this->b_Room5->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room5_Click);
 			// 
