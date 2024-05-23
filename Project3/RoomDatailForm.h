@@ -1,5 +1,6 @@
 #pragma once
-
+#include"ReserveForm.h"
+#include"PublicData.h"
 namespace Project3 {
 
 	using namespace System;
@@ -135,6 +136,9 @@ namespace Project3 {
 	private: System::Void l_Roomdata_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 private: System::Void b_Reserve_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (flag == 0) {
+		MessageBox::Show("ƒƒOƒCƒ“‚µ‚Ä‚­‚¾‚³‚¢");
+	}
 
 }
 };
