@@ -142,6 +142,7 @@
     <ClInclude Include="NewEntryForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="PublicData.h" />
     <ClInclude Include="ReserveForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
