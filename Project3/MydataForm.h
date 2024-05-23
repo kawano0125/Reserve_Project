@@ -1,4 +1,6 @@
 #pragma once
+#include "AllRoomForm.h"
+#include "LoginForm.h"
 
 namespace Project3 {
 
@@ -85,37 +87,41 @@ namespace Project3 {
 			// 
 			this->b_MydataReturn->Location = System::Drawing::Point(12, 12);
 			this->b_MydataReturn->Name = L"b_MydataReturn";
-			this->b_MydataReturn->Size = System::Drawing::Size(75, 23);
+			this->b_MydataReturn->Size = System::Drawing::Size(80, 30);
 			this->b_MydataReturn->TabIndex = 0;
 			this->b_MydataReturn->Text = L"戻る";
 			this->b_MydataReturn->UseVisualStyleBackColor = true;
+			this->b_MydataReturn->Click += gcnew System::EventHandler(this, &MydataForm::b_MydataReturn_Click);
 			// 
 			// b_Logout
 			// 
-			this->b_Logout->Location = System::Drawing::Point(495, 12);
+			this->b_Logout->Location = System::Drawing::Point(490, 12);
 			this->b_Logout->Name = L"b_Logout";
-			this->b_Logout->Size = System::Drawing::Size(75, 23);
+			this->b_Logout->Size = System::Drawing::Size(80, 30);
 			this->b_Logout->TabIndex = 1;
 			this->b_Logout->Text = L"ログアウト";
 			this->b_Logout->UseVisualStyleBackColor = true;
+			this->b_Logout->Click += gcnew System::EventHandler(this, &MydataForm::b_Logout_Click);
 			// 
 			// b_Detail
 			// 
 			this->b_Detail->Location = System::Drawing::Point(183, 478);
 			this->b_Detail->Name = L"b_Detail";
-			this->b_Detail->Size = System::Drawing::Size(75, 23);
+			this->b_Detail->Size = System::Drawing::Size(80, 30);
 			this->b_Detail->TabIndex = 2;
 			this->b_Detail->Text = L"予約詳細";
 			this->b_Detail->UseVisualStyleBackColor = true;
+			this->b_Detail->Click += gcnew System::EventHandler(this, &MydataForm::b_Detail_Click);
 			// 
 			// b_Delete
 			// 
-			this->b_Delete->Location = System::Drawing::Point(311, 478);
+			this->b_Delete->Location = System::Drawing::Point(318, 478);
 			this->b_Delete->Name = L"b_Delete";
-			this->b_Delete->Size = System::Drawing::Size(75, 23);
+			this->b_Delete->Size = System::Drawing::Size(80, 30);
 			this->b_Delete->TabIndex = 3;
 			this->b_Delete->Text = L"予約削除";
 			this->b_Delete->UseVisualStyleBackColor = true;
+			this->b_Delete->Click += gcnew System::EventHandler(this, &MydataForm::b_Delete_Click);
 			// 
 			// l_name
 			// 
@@ -160,9 +166,10 @@ namespace Project3 {
 			// clb_Reservedata
 			// 
 			this->clb_Reservedata->FormattingEnabled = true;
-			this->clb_Reservedata->Location = System::Drawing::Point(127, 206);
+			this->clb_Reservedata->Items->AddRange(gcnew cli::array< System::Object^  >(6) { L"1", L"2", L"3", L"4", L"5", L"..." });
+			this->clb_Reservedata->Location = System::Drawing::Point(85, 192);
 			this->clb_Reservedata->Name = L"clb_Reservedata";
-			this->clb_Reservedata->Size = System::Drawing::Size(325, 225);
+			this->clb_Reservedata->Size = System::Drawing::Size(414, 259);
 			this->clb_Reservedata->TabIndex = 8;
 			// 
 			// MydataForm
@@ -181,10 +188,40 @@ namespace Project3 {
 			this->Controls->Add(this->b_MydataReturn);
 			this->Name = L"MydataForm";
 			this->Text = L"マイページ";
+			this->Load += gcnew System::EventHandler(this, &MydataForm::MydataForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+	private: System::Void b_MydataReturn_Click(System::Object^ sender, System::EventArgs^ e) {
+		AllRoomForm^ all = gcnew AllRoomForm;
+		all->Show();
+	}
+private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ e) {
+	LoginForm^ login = gcnew LoginForm;
+	login->Show();
+}
+private: System::Void b_Detail_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (clb_Reservedata->CheckedItems->Count > 0) {
+		MessageBox::Show(clb_Reservedata->Text);
+	}
+	else {
+		MessageBox::Show("予約詳細したい科目を選択してください！");
+	}
+}
+private: System::Void b_Delete_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (clb_Reservedata->CheckedItems->Count > 0) {
+		clb_Reservedata->ClearSelected();
+		MessageBox::Show("予約キャンセルしました！");
+	}else {
+		MessageBox::Show("予約キャンセルしたい科目を選択してください！");
+	}
+}
+private: System::Void MydataForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	//this->l_Namedata = ログインフォームからもらう値
+	//this->l_Passworddata = //
+	//this->clb_Reservedata = //
+}
+};
 }
