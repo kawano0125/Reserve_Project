@@ -36,9 +36,11 @@ namespace Project3 {
 		}
 	private: System::Windows::Forms::Button^ b_RoomdataReturn;
 	private: System::Windows::Forms::Button^ b_Reserve;
+	public: System::Windows::Forms::Label^ l_Roomdata;
+	private:
 	protected:
 
-	private: System::Windows::Forms::Label^ l_Roomdata;
+
 	private: System::Windows::Forms::ListBox^ lb_ReserveState;
 
 
