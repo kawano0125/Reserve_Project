@@ -7,6 +7,7 @@ static int EndHour;
 static int EndMin;
 static int Num;
 static int Id;
+static int flag;
 namespace Project3 {
 	using namespace System;
 	ref class PublicData

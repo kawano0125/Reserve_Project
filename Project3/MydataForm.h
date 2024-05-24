@@ -36,8 +36,11 @@ namespace Project3 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^ b_MydataReturn;
-	private: System::Windows::Forms::Button^ b_Logout;
+	public: System::Windows::Forms::Button^ b_MydataReturn;
+	protected:
+	public: System::Windows::Forms::Button^ b_Logout;
+
+
 	private: System::Windows::Forms::Button^ b_Detail;
 	private: System::Windows::Forms::Button^ b_Delete;
 	protected:
@@ -195,11 +198,11 @@ namespace Project3 {
 		}
 #pragma endregion
 	private: System::Void b_MydataReturn_Click(System::Object^ sender, System::EventArgs^ e) {
-		AllRoomForm^ all = gcnew AllRoomForm;
+		AllRoomForm^ all = gcnew AllRoomForm();
 		all->Show();
 	}
 private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ e) {
-	LoginForm^ login = gcnew LoginForm;
+	LoginForm^ login = gcnew LoginForm();
 	login->Show();
 }
 private: System::Void b_Detail_Click(System::Object^ sender, System::EventArgs^ e) {
