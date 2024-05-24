@@ -1,11 +1,6 @@
 #pragma once
 #include "AllroomForm.h"
 #include "NewEntryForm.h"
-#include "MydataForm.h"
-#include "SearchForm.h"
-#include "SearchResultForm.h"
-#include "RoomDatailForm.h"
-#include "ReserveForm.h"
 #include "PublicData.h"
 namespace Project3 {
 
@@ -158,6 +153,7 @@ namespace Project3 {
 			this->b_Login->TabIndex = 6;
 			this->b_Login->Text = L"ログイン";
 			this->b_Login->UseVisualStyleBackColor = true;
+			this->b_Login->Click += gcnew System::EventHandler(this, &LoginForm::b_Login_Click);
 			// 
 			// LoginForm
 			// 
@@ -201,9 +197,10 @@ private: System::Void b_AllRoom_Click(System::Object^ sender, System::EventArgs^
 		AllRoomForm^ allroomform = gcnew AllRoomForm();
 		allroomform->ShowDialog();
 
-		//ログイン画面を表示
-		this->Visible = true;
-	}
+private: System::Void b_Login_Click(System::Object^ sender, System::EventArgs^ e) {
+	AllRoomForm^ frmAll = gcnew AllRoomForm();
+	this->Hide();
+	frmAll->ShowDialog();
 }
 };
 }

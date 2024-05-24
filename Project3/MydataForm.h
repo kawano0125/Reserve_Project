@@ -1,6 +1,6 @@
 #pragma once
-#include "AllRoomForm.h"
-#include "LoginForm.h"
+
+
 
 namespace Project3 {
 
@@ -198,12 +198,12 @@ namespace Project3 {
 		}
 #pragma endregion
 	private: System::Void b_MydataReturn_Click(System::Object^ sender, System::EventArgs^ e) {
-		AllRoomForm^ all = gcnew AllRoomForm();
-		all->Show();
+		//AllRoomForm^ all = gcnew AllRoomForm();
+		//all->Show();
 	}
 private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ e) {
-	LoginForm^ login = gcnew LoginForm();
-	login->Show();
+	//LoginForm^ login = gcnew LoginForm();
+	//login->Show();
 }
 private: System::Void b_Detail_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (clb_Reservedata->CheckedItems->Count > 0) {

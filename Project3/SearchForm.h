@@ -1,6 +1,6 @@
 #pragma once
 #include "SearchResultForm.h"
-#include "AllRoomForm.h"
+
 namespace Project3 {
 
 	using namespace System;
@@ -380,7 +380,7 @@ private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ 
 		
 		//•K—v‚Èˆ—‚Í‚±‚±‚É‘‚«ž‚ñ‚Å‚­‚¾‚³‚¢
 
-		frm->ShowDialog();
+		//frm->ShowDialog();
 	}
 	else
 	{
@@ -388,8 +388,8 @@ private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ 
 	}
 }
 private: System::Void b_SearchReturn_Click(System::Object^ sender, System::EventArgs^ e) {
-	AllRoomForm^ frm = gcnew AllRoomForm();
-	frm->ShowDialog();
+	//AllRoomForm^ frm = gcnew AllRoomForm();
+	//frm->ShowDialog();
 }
 
 };
