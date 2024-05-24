@@ -3,6 +3,7 @@
 #include "AllroomForm.h"
 #include "NewEntryForm.h"
 #include "PublicData.h"
+
 namespace Project3 {
 
 	using namespace System;
@@ -25,7 +26,6 @@ namespace Project3 {
 			//
 			//TODO: ここにコンストラクター コードを追加します
 			//
-			
 			
 		}
 

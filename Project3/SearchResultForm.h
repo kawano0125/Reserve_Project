@@ -176,21 +176,7 @@ namespace Project3 {
 
 private: System::Void SearchResultForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	String^ path;
-
-	switch (RoomNumber)
-	{
-	case1:
-		PublicData::ReadDataFromFile("room1data.txt", PublicData::Room1Array,PublicData::Room1Index);
-
-	case2:
-	case3:
-	case4:
-	case5:
-	case 6:
-
-	default:
-		break;
-	}
+	//PublicData::ReadDataFromFile("room1data.txt", PublicData::Room1Array,PublicData::Room1Index);
 }
 };
 }

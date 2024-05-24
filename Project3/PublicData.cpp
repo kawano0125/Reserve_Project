@@ -34,8 +34,9 @@ namespace Project3 {
 		int Max;
 		switch (RoomNumber) {
 		case 1:
+			
 			Max = 6;
-			for (int i; i < Room1Index; i++) {
+			for (int i= 0; i < Room1Index; i++) {
 				if (people <= Max)
 				{
 					if (Room1Array[i, 1] == Date)
@@ -52,7 +53,7 @@ namespace Project3 {
 			}
 		case 2:
 			Max = 10;
-			for (int i; i < Room1Index; i++) {
+			for (int i= 0; i < Room1Index; i++) {
 				if (people <= Max)
 				{
 					if (Room2Array[i, 1] == Date)
@@ -69,7 +70,7 @@ namespace Project3 {
 			}
 		case 3:
 			Max = 15;
-			for (int i; i < Room3Index; i++) {
+			for (int i = 0; i < Room3Index; i++) {
 				if (people <= Max)
 				{
 					if (Room3Array[i, 1] == Date)
@@ -86,7 +87,7 @@ namespace Project3 {
 			}
 		case 4:
 			Max = 50;
-			for (int i; i < Room4Index; i++) {
+			for (int i = 0; i < Room4Index; i++) {
 				if (people <= Max)
 				{
 					if (Room4Array[i, 1] == Date)
@@ -103,7 +104,7 @@ namespace Project3 {
 			}
 		case 5:
 			Max = 4;
-			for (int i; i < Room5Index; i++) {
+			for (int i = 0; i < Room5Index; i++) {
 				if (people <= Max)
 				{
 					if (Room5Array[i, 1] == Date)
@@ -120,7 +121,7 @@ namespace Project3 {
 			}
 		case 6:
 			Max = 1;
-			for (int i; i < Room6Index; i++) {
+			for (int i = 0; i < Room6Index; i++) {
 				if (people <= Max)
 				{
 					if (Room6Array[i, 1] == Date)
