@@ -135,6 +135,7 @@ namespace Project3 {
 
 		}
 #pragma endregion
+		ReserveForm^ frm1 = gcnew ReserveForm();
 	private: System::Void l_Roomdata_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 private: System::Void b_Reserve_Click(System::Object^ sender, System::EventArgs^ e) {
