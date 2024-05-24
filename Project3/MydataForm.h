@@ -204,18 +204,30 @@ private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ 
 }
 private: System::Void b_Detail_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (clb_Reservedata->CheckedItems->Count > 0) {
-		MessageBox::Show(clb_Reservedata->Text);
+		String^ selected = "";
+		for each (Object ^ item in clb_Reservedata->CheckedItems) {
+			selected += item->ToString() + "\n";
+		}
+		MessageBox::Show(selected, "予約確認");
 	}
 	else {
-		MessageBox::Show("予約詳細したい科目を選択してください！");
+		MessageBox::Show("予約確認したい科目を選択してください!", "確認");
 	}
 }
 private: System::Void b_Delete_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (clb_Reservedata->CheckedItems->Count > 0) {
-		clb_Reservedata->ClearSelected();
-		MessageBox::Show("予約キャンセルしました！");
-	}else {
-		MessageBox::Show("予約キャンセルしたい科目を選択してください！");
+		System::Windows::Forms::DialogResult result = MessageBox::Show("予約キャンセルしますか？", "キャンセル確認",
+			MessageBoxButtons::YesNo, MessageBoxIcon::Warning
+		);
+		if (result == System::Windows::Forms::DialogResult::Yes) {
+			for (int i = clb_Reservedata->CheckedItems->Count - 1; i >= 0; i--) {
+				int index = clb_Reservedata->Items->IndexOf(clb_Reservedata->CheckedItems[i]);
+				clb_Reservedata->Items->RemoveAt(index);
+			}
+		}
+	}
+	else {
+		MessageBox::Show("キャンセルしたい科目を選択してください!", "確認");
 	}
 }
 private: System::Void MydataForm_Load(System::Object^ sender, System::EventArgs^ e) {
