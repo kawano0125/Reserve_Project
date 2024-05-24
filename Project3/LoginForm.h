@@ -123,6 +123,7 @@ namespace Project3 {
 			this->b_AllRoom->TabIndex = 4;
 			this->b_AllRoom->Text = L"研修室表示";
 			this->b_AllRoom->UseVisualStyleBackColor = true;
+			this->b_AllRoom->Click += gcnew System::EventHandler(this, &LoginForm::b_AllRoom_Click);
 			// 
 			// b_NewEntry
 			// 
@@ -134,6 +135,7 @@ namespace Project3 {
 			this->b_NewEntry->TabIndex = 5;
 			this->b_NewEntry->Text = L"新規作成";
 			this->b_NewEntry->UseVisualStyleBackColor = true;
+			this->b_NewEntry->Click += gcnew System::EventHandler(this, &LoginForm::b_NewEntry_Click);
 			// 
 			// b_Login
 			// 
@@ -165,5 +167,32 @@ namespace Project3 {
 
 		}
 #pragma endregion
-	};
+	private: System::Void b_NewEntry_Click(System::Object^ sender, System::EventArgs^ e) {
+		//ログイン画面を非表示
+		this->Visible = false;
+
+		//NewEntryFormを表示
+		NewEntryForm^ newenrtyform = gcnew NewEntryForm();
+		newenrtyform->ShowDialog();
+
+		//ログイン画面を表示
+		this->Visible = true;
+	}
+private: System::Void b_AllRoom_Click(System::Object^ sender, System::EventArgs^ e) {
+	//非会員フラグを設定
+	flag = 1;					
+	flag = !flag;	//フラグを反転させる
+	if (!flag) {
+		//ログイン画面を非表示
+		this->Visible = false;
+
+		//AllRoomFormを表示
+		AllRoomForm^ allroomform = gcnew AllRoomForm();
+		allroomform->ShowDialog();
+
+		//ログイン画面を表示
+		this->Visible = true;
+	}
+}
+};
 }

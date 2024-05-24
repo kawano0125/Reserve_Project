@@ -110,6 +110,7 @@ namespace Project3 {
 			this->b_Entry->TabIndex = 4;
 			this->b_Entry->Text = L"新規作成";
 			this->b_Entry->UseVisualStyleBackColor = true;
+			this->b_Entry->Click += gcnew System::EventHandler(this, &NewEntryForm::b_Entry_Click);
 			// 
 			// b_EntryReturn
 			// 
@@ -140,5 +141,33 @@ namespace Project3 {
 
 		}
 #pragma endregion
-	};
+		String^ newname;
+		String^ newpass;
+	private: System::Void b_Entry_Click(System::Object^ sender, System::EventArgs^ e) {
+		//テキストボックスのデータの取得
+		try {
+			//ユーザー名とパスワードを格納するuserdata.txtを開く
+			System::IO::StreamWriter^ writer = gcnew System::IO::StreamWriter("./userdata.txt", true);
+			//userdata.txtに中身がある場合、その値を読み取る
+			newname = tb_NewName->Text;
+			newpass = tb_NewPassword->Text;
+			if (newname->Length< 8 || newpass->Length<8) {
+				MessageBox::Show("パスワードを8文字以上にしてください。", "エラー", MessageBoxButtons::OK);
+			}
+			else if (newname->Length > 16 || newpass->Length > 16){
+				MessageBox::Show("パスワードを16文字以下にしてください。", "エラー", MessageBoxButtons::OK);
+			}
+
+			
+			writer->WriteLine(newname + newpass);
+			//userdata.txtを閉じる
+			writer->Close();
+		}
+		catch (System::IO::FileNotFoundException^ ex) {
+			//ファイルが存在しない場合、初期値0で新たなテキストファイルを作成
+			System::IO::File::AppendAllText("./userdata.txt", "0");
+			System::Diagnostics::Debug::WriteLine("---エラーメッセージ---\n" + ex->Message);
+		}
+	}
+};
 }
