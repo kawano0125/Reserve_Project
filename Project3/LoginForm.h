@@ -1,11 +1,6 @@
 #pragma once
 #include "AllroomForm.h"
 #include "NewEntryForm.h"
-#include "MydataForm.h"
-#include "SearchForm.h"
-#include "SearchResultForm.h"
-#include "RoomDatailForm.h"
-#include "ReserveForm.h"
 #include "PublicData.h"
 namespace Project3 {
 
@@ -156,6 +151,7 @@ namespace Project3 {
 			this->b_Login->TabIndex = 6;
 			this->b_Login->Text = L"ログイン";
 			this->b_Login->UseVisualStyleBackColor = true;
+			this->b_Login->Click += gcnew System::EventHandler(this, &LoginForm::b_Login_Click);
 			// 
 			// LoginForm
 			// 
@@ -176,27 +172,11 @@ namespace Project3 {
 
 		}
 #pragma endregion
-		void AddDataToArray(String^ line, cli::array<String^, 2>^ RoomPointer, int index) {
-			//データが入る配列の要素数を超えていないか確認
-			if (index < RoomPointer->GetLength(0)) {
-				//データをカンマで分割して配列に格納
-				cli::array<String^>^ parts = line->Split(',');
-				if (parts->Length == 5) {
-					RoomPointer[index, 0] = parts[0];
-					RoomPointer[index, 1] = parts[1];
-					RoomPointer[index, 2] = parts[2];
-					RoomPointer[index, 3] = parts[3];
-					RoomPointer[index, 4] = parts[4];
 
-					index++;
-				}
-			}
-			else
-			{
-				MessageBox::Show("データ配列がいっぱいです", "エラー", MessageBoxButtons::OK, MessageBoxIcon::Error);
-			}
-
-
-		}
+private: System::Void b_Login_Click(System::Object^ sender, System::EventArgs^ e) {
+	AllRoomForm^ frmAll = gcnew AllRoomForm();
+	this->Hide();
+	frmAll->ShowDialog();
+}
 };
 }

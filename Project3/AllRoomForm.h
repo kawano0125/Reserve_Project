@@ -1,5 +1,5 @@
 #pragma once
-#include"search.h"
+#include"SearchForm.h"
 #include"MydataForm.h"
 #include"RoomDatailForm.h"
 #include"PublicData.h"
@@ -291,14 +291,19 @@ namespace Project3 {
 
 		}
 #pragma endregion
-		SearchForm^ frm = gcnew SearchForm();
-		MydataForm^ frm1 = gcnew MydataForm();
-		RoomDatailForm^ frm3 = gcnew RoomDatailForm();
+		
+		//MydataForm^ frm1 = gcnew MydataForm();
+		//RoomDatailForm^ frm3 = gcnew RoomDatailForm();
 	private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ e) {
-		frm->ShowDialog();
+		SearchForm^ frmSearch = gcnew SearchForm();
+		this->Close();
+		frmSearch->Show();
+		
 	}
 private: System::Void b_Mydata_Click(System::Object^ sender, System::EventArgs^ e) {
-	frm1->ShowDialog();
+	MydataForm^ frmMydata = gcnew MydataForm();
+	this->Close();
+	frmMydata->Show();
 }
 private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
@@ -307,34 +312,38 @@ private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ 
 	  
 
 private: System::Void b_Room1_Click(System::Object^ sender, System::EventArgs^ e) {
+	 RoomDatailForm^ frmRoom1 = gcnew RoomDatailForm();
 	 RoomNumber = 1;
-	frm3->l_Roomdata->Text = "会議室1　収容人数６名　モニター完備（各自PC持ち込み)";
-	frm3->ShowDialog();
+	 frmRoom1->l_Roomdata->Text = "会議室1　収容人数６名　モニター完備（各自PC持ち込み)";
+	 frmRoom1->ShowDialog();
 }
 private: System::Void b_Room2_Click(System::Object^ sender, System::EventArgs^ e) {
 	 RoomNumber = 2;
-	frm3->l_Roomdata->Text = "会議室2　収容人数10名　モニター&接続PC完備";
-	frm3->ShowDialog();
+	 RoomDatailForm^ frmRoom2 = gcnew RoomDatailForm();
+	 frmRoom2->l_Roomdata->Text = "会議室2　収容人数10名　モニター&接続PC完備";
+	 frmRoom2->ShowDialog();
 }
 private: System::Void b_Room3_Click(System::Object^ sender, System::EventArgs^ e) {
 	RoomNumber = 3;
-	frm3->l_Roomdata->Text = "大会議室　収容人数15名　モニター&接続PC完備";
-	frm3->ShowDialog();
+	RoomDatailForm^ frmRoom3 = gcnew RoomDatailForm();
+	frmRoom3->l_Roomdata->Text = "大会議室　収容人数15名　モニター&接続PC完備";
+	frmRoom3->ShowDialog();
 }
 private: System::Void b_Room4_Click(System::Object^ sender, System::EventArgs^ e) {
     RoomNumber = 4;
-	frm3->l_Roomdata->Text = "大ホール　収容人数50名　モニター&接続PC、マイク完備";
-	frm3->ShowDialog();
+	RoomDatailForm^ frmRoom4 = gcnew RoomDatailForm();
+	frmRoom4->l_Roomdata->Text = "大ホール　収容人数50名　モニター&接続PC、マイク完備";
+	frmRoom4->ShowDialog();
 }
 private: System::Void b_Room5_Click(System::Object^ sender, System::EventArgs^ e) {
 	RoomNumber = 5;
-	frm3->l_Roomdata->Text = "小会議室　収容人数4名　ホワイトボード完備";
-	frm3->ShowDialog();
+	//frm3->l_Roomdata->Text = "小会議室　収容人数4名　ホワイトボード完備";
+	//frm3->ShowDialog();
 }
 private: System::Void b_Room6_Click(System::Object^ sender, System::EventArgs^ e) {
 	RoomNumber = 6;
-	frm3->l_Roomdata->Text = "PC室　個室　MacPC完備　Adobe使用可能";
-	frm3->ShowDialog();
+	//frm3->l_Roomdata->Text = "PC室　個室　MacPC完備　Adobe使用可能";
+	//frm3->ShowDialog();
 }
 };
 }
