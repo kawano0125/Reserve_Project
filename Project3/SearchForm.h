@@ -390,5 +390,6 @@ private: System::Void b_SearchReturn_Click(System::Object^ sender, System::Event
 	AllRoomForm^ frm = gcnew AllRoomForm();
 	frm->ShowDialog();
 }
+
 };
 }

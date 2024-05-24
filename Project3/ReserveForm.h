@@ -1,5 +1,7 @@
 #pragma once
 
+#include "PublicData.h"
+
 namespace Project3 {
 
 	using namespace System;
@@ -51,7 +53,8 @@ namespace Project3 {
 	private: System::Windows::Forms::ComboBox^ cb_EndMin;
 	private: System::Windows::Forms::Label^ l_EndMin;
 	private: System::Windows::Forms::Label^ l_Num;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ tb_Numdata;
+
 	private: System::Windows::Forms::Label^ l_Purpose;
 	private: System::Windows::Forms::ComboBox^ cb_Purpose;
 
@@ -94,7 +97,7 @@ namespace Project3 {
 			this->cb_EndMin = (gcnew System::Windows::Forms::ComboBox());
 			this->l_EndMin = (gcnew System::Windows::Forms::Label());
 			this->l_Num = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->tb_Numdata = (gcnew System::Windows::Forms::TextBox());
 			this->l_Purpose = (gcnew System::Windows::Forms::Label());
 			this->cb_Purpose = (gcnew System::Windows::Forms::ComboBox());
 			this->SuspendLayout();
@@ -107,6 +110,7 @@ namespace Project3 {
 			this->b_ReserveReturn->TabIndex = 0;
 			this->b_ReserveReturn->Text = L"戻る";
 			this->b_ReserveReturn->UseVisualStyleBackColor = true;
+			this->b_ReserveReturn->Click += gcnew System::EventHandler(this, &ReserveForm::b_ReserveReturn_Click);
 			// 
 			// b_Reserve
 			// 
@@ -116,6 +120,7 @@ namespace Project3 {
 			this->b_Reserve->TabIndex = 1;
 			this->b_Reserve->Text = L"予約";
 			this->b_Reserve->UseVisualStyleBackColor = true;
+			this->b_Reserve->Click += gcnew System::EventHandler(this, &ReserveForm::b_Reserve_Click);
 			// 
 			// dtp_Calendar
 			// 
@@ -238,12 +243,12 @@ namespace Project3 {
 			this->l_Num->TabIndex = 14;
 			this->l_Num->Text = L"人数：";
 			// 
-			// textBox1
+			// tb_Numdata
 			// 
-			this->textBox1->Location = System::Drawing::Point(101, 272);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 22);
-			this->textBox1->TabIndex = 15;
+			this->tb_Numdata->Location = System::Drawing::Point(101, 272);
+			this->tb_Numdata->Name = L"tb_Numdata";
+			this->tb_Numdata->Size = System::Drawing::Size(100, 22);
+			this->tb_Numdata->TabIndex = 15;
 			// 
 			// l_Purpose
 			// 
@@ -270,7 +275,7 @@ namespace Project3 {
 			this->ClientSize = System::Drawing::Size(582, 553);
 			this->Controls->Add(this->cb_Purpose);
 			this->Controls->Add(this->l_Purpose);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->tb_Numdata);
 			this->Controls->Add(this->l_Num);
 			this->Controls->Add(this->l_EndMin);
 			this->Controls->Add(this->cb_EndMin);
@@ -289,10 +294,220 @@ namespace Project3 {
 			this->Name = L"ReserveForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"予約フォーム";
+			this->Load += gcnew System::EventHandler(this, &ReserveForm::ReserveForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+	// フォーム読みコメれたときの処理
+	private: System::Void ReserveForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		// グローバルで格納してある値をテキストに格納
+		if (StartHour != 0) {
+			cb_StartHour->Text = StartHour.ToString();
+		}
+		if (StartMin != 0) {
+			cb_StartMin->Text = StartMin.ToString();
+		}
+		else {
+			cb_StartMin->Text = "00";
+		}
+		if (EndHour != 0) {
+			cb_EndHour->Text = EndHour.ToString();
+		}
+		if (EndMin != 0) {
+			cb_EndMin->Text = EndHour.ToString();
+		}
+		else {
+			cb_EndMin->Text = "00";
+		}
+		if (Num != 0) {
+			tb_Numdata->Text = Num.ToString();
+		}
+	}
+// 予約ボタンが押されたときの処理
+private: System::Void b_Reserve_Click(System::Object^ sender, System::EventArgs^ e) {
+	int noterror = 0;
+	// すべてを入力させる処理
+	if ((cb_StartHour->Text == "") || (cb_StartMin->Text == "") || (cb_EndHour->Text == "") || (cb_EndMin->Text == "") || (tb_Numdata->Text == "") || (cb_Purpose->Text == "")) {
+		MessageBox::Show("すべての値を入力してください。", "エラー", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+	}
+	else {
+		noterror++;
+	}
+
+	// 時間の格納
+	int starttime;
+	int endtime;
+	try
+	{
+		starttime = (Convert::ToInt32(this->cb_StartHour->Text)) * 100 + (Convert::ToInt32(this->cb_StartMin->Text));
+		//MessageBox::Show(starttime.ToString());
+		endtime = (Convert::ToInt32(this->cb_EndHour->Text)) * 100 + (Convert::ToInt32(this->cb_EndMin->Text));
+		//MessageBox::Show(endtime.ToString());
+	}
+	catch (Exception^ ex)
+	{
+		System::Diagnostics::Debug::WriteLine("エラー" + ex->Message);
+	}
+
+	// 入力時間規制
+	if (starttime >= endtime) {
+		MessageBox::Show("時間の指定に誤りがあります。", "エラー", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+	}
+	else {
+		noterror++;
+	}
+
+	// 人数の格納
+	int num;
+	try
+	{
+		num = Convert::ToInt32(this->tb_Numdata->Text);
+	}
+	catch (Exception^ ex)
+	{
+		MessageBox::Show("正しい人数を設定してください。", "エラー", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		System::Diagnostics::Debug::WriteLine("エラー" + ex->Message);
+	}
+
+	// 入力人数規制
+	if (num <= 0) {
+		MessageBox::Show("正しい人数を設定してください。", "エラー", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+	}
+	else {
+		noterror++;
+	}
+	// 日付格納
+	DateTime dt = dtp_Calendar->Value;
+	int year = dt.Year;
+	int month = dt.Month;
+	int day = dt.Day;
+
+	// 格納値
+	String^ setmonth;
+	if (month < 10) {
+		setmonth = "0" + month.ToString();
+	}
+	else {
+		setmonth = month.ToString();
+	}
+	String^ setday;
+	if (day < 10) {
+		setday = "0" + day.ToString();
+	}
+	else {
+		setday = day.ToString();
+	}
+	String^ purpose = cb_Purpose->Text;
+
+	// 予約可能か判定
+	int ans = 1;		// 関数記述（河野）
+
+	FILE* fp;
+	// ファイルへの書き込み
+	if (ans && (noterror == 3)) {
+		switch (RoomNumber)
+		{
+		case 1:
+			// room1data.txtを開く（存在しない場合は新規作成）
+			fp = fopen("room1data.txt", "a");
+			if (fp == NULL) {
+				exit(1);
+			}
+			else {
+				fprintf(fp, "%d,%d/%s/%s,%d,%d,%d,%s\n", Id, year, setmonth, setday, starttime, endtime, num, purpose);
+
+				// 書き込み完了メッセージ
+				MessageBox::Show("予約が完了しました。\n" + year.ToString() + "/" + month.ToString() + "/" + day.ToString() + "\t" + cb_StartHour->Text + "：" + cb_StartMin->Text + "\n\t\t" + "　S\n" + "\t\t" + cb_EndHour->Text + "：" + cb_EndMin->Text + "\n人数：\t" + tb_Numdata->Text + "\n用途：\t" + cb_Purpose->Text);
+			}
+			fclose(fp);
+
+			break;
+		case 2:
+			// room2data.txtを開く（存在しない場合は新規作成）
+			fp = fopen("room2data.txt", "a");
+			if (fp == NULL) {
+				exit(1);
+			}
+			else {
+				fprintf(fp, "%d,%d/%s/%s,%d,%d,%d,%s\n", Id, year, setmonth, setday, starttime, endtime, num, purpose);
+
+				// 書き込み完了メッセージ
+				MessageBox::Show("予約が完了しました。\n" + year.ToString() + "/" + month.ToString() + "/" + day.ToString() + "\t" + cb_StartHour->Text + "：" + cb_StartMin->Text + "\n\t\t" + "　S\n" + "\t\t" + cb_EndHour->Text + "：" + cb_EndMin->Text + "\n人数：\t" + tb_Numdata->Text + "\n用途：\t" + cb_Purpose->Text);
+			}
+			fclose(fp);
+
+			break;
+		case 3:
+			// room3data.txtを開く（存在しない場合は新規作成）
+			fp = fopen("room3data.txt", "a");
+			if (fp == NULL) {
+				exit(1);
+			}
+			else {
+				fprintf(fp, "%d,%d/%s/%s,%d,%d,%d,%s\n", Id, year, setmonth, setday, starttime, endtime, num, purpose);
+
+				// 書き込み完了メッセージ
+				MessageBox::Show("予約が完了しました。\n" + year.ToString() + "/" + month.ToString() + "/" + day.ToString() + "\t" + cb_StartHour->Text + "：" + cb_StartMin->Text + "\n\t\t" + "　S\n" + "\t\t" + cb_EndHour->Text + "：" + cb_EndMin->Text + "\n人数：\t" + tb_Numdata->Text + "\n用途：\t" + cb_Purpose->Text);
+			}
+			fclose(fp);
+
+			break;
+		case 4:
+			// room4data.txtを開く（存在しない場合は新規作成）
+			fp = fopen("room4data.txt", "a");
+			if (fp == NULL) {
+				exit(1);
+			}
+			else {
+				fprintf(fp, "%d,%d/%s/%s,%d,%d,%d,%s\n", Id, year, setmonth, setday, starttime, endtime, num, purpose);
+
+				// 書き込み完了メッセージ
+				MessageBox::Show("予約が完了しました。\n" + year.ToString() + "/" + month.ToString() + "/" + day.ToString() + "\t" + cb_StartHour->Text + "：" + cb_StartMin->Text + "\n\t\t" + "　S\n" + "\t\t" + cb_EndHour->Text + "：" + cb_EndMin->Text + "\n人数：\t" + tb_Numdata->Text + "\n用途：\t" + cb_Purpose->Text);
+			}
+			fclose(fp);
+
+			break;
+		case 5:
+			// room5data.txtを開く（存在しない場合は新規作成）
+			fp = fopen("room5data.txt", "a");
+			if (fp == NULL) {
+				exit(1);
+			}
+			else {
+				fprintf(fp, "%d,%d/%s/%s,%d,%d,%d,%s\n", Id, year, setmonth, setday, starttime, endtime, num, purpose);
+
+				// 書き込み完了メッセージ
+				MessageBox::Show("予約が完了しました。\n" + year.ToString() + "/" + month.ToString() + "/" + day.ToString() + "\t" + cb_StartHour->Text + "：" + cb_StartMin->Text + "\n\t\t" + "　S\n" + "\t\t" + cb_EndHour->Text + "：" + cb_EndMin->Text + "\n人数：\t" + tb_Numdata->Text + "\n用途：\t" + cb_Purpose->Text);
+			}
+			fclose(fp);
+
+			break;
+		case 6:
+			// room6data.txtを開く（存在しない場合は新規作成）
+			fp = fopen("room6data.txt", "a");
+			if (fp == NULL) {
+				exit(1);
+			}
+			else {
+				fprintf(fp, "%d,%d/%s/%s,%d,%d,%d,%s\n", Id, year, setmonth, setday, starttime, endtime, num, purpose);
+
+				// 書き込み完了メッセージ
+				MessageBox::Show("予約が完了しました。\n" + year.ToString() + "/" + month.ToString() + "/" + day.ToString() + "\t" + cb_StartHour->Text + "：" + cb_StartMin->Text + "\n\t\t" + "　S\n" + "\t\t" + cb_EndHour->Text + "：" + cb_EndMin->Text + "\n人数：\t" + tb_Numdata->Text + "\n用途：\t" + cb_Purpose->Text);
+			}
+			fclose(fp);
+
+			break;
+		default:
+			//MessageBox::Show("予約が完了しました。" + dtp_Calendar->Value);
+			break;
+		}
+	}
+}
+// 戻るボタンが押されたときの処理
+private: System::Void b_ReserveReturn_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
+};
 }
