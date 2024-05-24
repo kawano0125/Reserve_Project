@@ -78,6 +78,7 @@ namespace Project3 {
 			this->b_RoomdataReturn->TabIndex = 0;
 			this->b_RoomdataReturn->Text = L"–ß‚é";
 			this->b_RoomdataReturn->UseVisualStyleBackColor = true;
+			this->b_RoomdataReturn->Click += gcnew System::EventHandler(this, &RoomDatailForm::b_RoomdataReturn_Click);
 			// 
 			// b_Reserve
 			// 
@@ -128,6 +129,7 @@ namespace Project3 {
 			this->MinimizeBox = false;
 			this->Name = L"RoomDatailForm";
 			this->Text = L"RoomDatailForm";
+			this->Load += gcnew System::EventHandler(this, &RoomDatailForm::RoomDatailForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -139,6 +141,12 @@ private: System::Void b_Reserve_Click(System::Object^ sender, System::EventArgs^
 	if (flag == 0) {
 		MessageBox::Show("ƒƒOƒCƒ“‚µ‚Ä‚­‚¾‚³‚¢");
 	}
+
+}
+private: System::Void b_RoomdataReturn_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
+private: System::Void RoomDatailForm_Load(System::Object^ sender, System::EventArgs^ e) {
 
 }
 };

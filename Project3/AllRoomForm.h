@@ -280,6 +280,7 @@ private: System::Void b_Mydata_Click(System::Object^ sender, System::EventArgs^ 
 	frm1->ShowDialog();
 }
 private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
 	
 }
 	  
