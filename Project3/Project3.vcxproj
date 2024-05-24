@@ -124,6 +124,7 @@
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MydataForm.cpp" />
     <ClCompile Include="NewEntryForm.cpp" />
+    <ClCompile Include="PublicData.cpp" />
     <ClCompile Include="ReserveForm.cpp" />
     <ClCompile Include="RoomDatailForm.cpp" />
     <ClCompile Include="SearchForm.cpp" />
@@ -146,7 +147,6 @@
     <ClInclude Include="ReserveForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="resource.h" />
     <ClInclude Include="RoomDatailForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

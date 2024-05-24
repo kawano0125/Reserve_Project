@@ -6,6 +6,7 @@
 #include "SearchResultForm.h"
 #include "RoomDatailForm.h"
 #include "ReserveForm.h"
+#include "PublicData.h"
 namespace Project3 {
 
 	using namespace System;
@@ -14,6 +15,7 @@ namespace Project3 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace cli;
 
 	/// <summary>
 	/// LoginForm の概要
@@ -27,6 +29,8 @@ namespace Project3 {
 			//
 			//TODO: ここにコンストラクター コードを追加します
 			//
+			
+			
 		}
 
 	protected:
@@ -60,6 +64,13 @@ namespace Project3 {
 		/// 必要なデザイナー変数です。
 		/// </summary>
 		System::ComponentModel::Container ^components;
+		
+		int room1index = 0;
+		int room2index = 0;
+		int room3index = 0;
+		int room4index = 0;
+		int room5index = 0;
+		int room6index = 0;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -165,7 +176,27 @@ namespace Project3 {
 
 		}
 #pragma endregion
+		void AddDataToArray(String^ line, cli::array<String^, 2>^ RoomPointer, int index) {
+			//データが入る配列の要素数を超えていないか確認
+			if (index < RoomPointer->GetLength(0)) {
+				//データをカンマで分割して配列に格納
+				cli::array<String^>^ parts = line->Split(',');
+				if (parts->Length == 5) {
+					RoomPointer[index, 0] = parts[0];
+					RoomPointer[index, 1] = parts[1];
+					RoomPointer[index, 2] = parts[2];
+					RoomPointer[index, 3] = parts[3];
+					RoomPointer[index, 4] = parts[4];
+
+					index++;
+				}
+			}
+			else
+			{
+				MessageBox::Show("データ配列がいっぱいです", "エラー", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			}
 
 
+		}
 };
 }

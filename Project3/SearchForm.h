@@ -303,21 +303,21 @@ namespace Project3 {
 		}
 #pragma endregion
 		public:
-			int StartHourint; //int型の開始時間（時）の宣言
-			int StartMinint; //int型の開始時間（分）の宣言
-			int EndHourint; //int型の終了時間（時）の宣言
-			int EndMinint; //int型の終了時間（分）の宣言
-			int StartTimeint; //int型の開始時間（時＋分）の宣言
-			int EndTimeint; //int型の終了時間（時＋分）の宣言
-			int NumDataint; //int型の使用人数の宣言
+			int StartHourint;		//int型の開始時間（時）の宣言
+			int StartMinint;		//int型の開始時間（分）の宣言
+			int EndHourint;			//int型の終了時間（時）の宣言
+			int EndMinint;			//int型の終了時間（分）の宣言
+			int StartTimeint;		//int型の開始時間（時＋分）の宣言
+			int EndTimeint;			//int型の終了時間（時＋分）の宣言
+			int NumDataint;			//int型の使用人数の宣言
 
-			String^ StartHour; //String^型の開始時間（時）の宣言
-			String^ StartMin; //String^型の開始時間（分）の宣言
-			String^ EndHour; //String^型の終了時間（時）の宣言
-			String^ EndMin; //String^型の終了時間（分）の宣言
-			String^ Day; //String^型の開始・終了日の宣言
-			String^ NumData; //String^型の使用人数の宣言
-			String^ WholeSearchData; //String^型の検索データ(日付＋時間＋人数)の宣言 
+			String^ StartHour;		//String^型の開始時間（時）の宣言
+			String^ StartMin;		//String^型の開始時間（分）の宣言
+			String^ EndHour;		//String^型の終了時間（時）の宣言
+			String^ EndMin;			//String^型の終了時間（分）の宣言
+			String^ Day;			//String^型の開始・終了日の宣言
+			String^ NumData;		//String^型の使用人数の宣言
+			String^ WholeSearchData;//String^型の検索データ(日付＋時間＋人数)の宣言 
 			//yyyy//mm//ddHHMMhhmmNで渡します( HH-開始時 MM-開始分 hh-終了時 mm-終了分 N-人数)
 
 private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ e) {

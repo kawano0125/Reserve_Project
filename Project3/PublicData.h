@@ -1,16 +1,63 @@
 #pragma once
-#include<iostream>
-#include<string> //stringクラスを使用可能にする
-using namespace std;
-/*static string Name;
-*/
-static int Id = 0;			//ユーザー名
-static int flag = 1;		//会員・非会員フラグ
-static int RoomNumber = 0;	//選択部屋番号
+#include<fstream>
 
-static int StartHour = 0;	//予約開始時
-static int StartMIn = 0;	//予約開始分
+namespace Project3 {
+	using namespace System;
+	ref class PublicData
+	{
+	public:
+		//ログインで使用する変数
+		static String^ Id = "";
+		static String^ PassWord;
+		static int Flag = 1;
 
-static int EndHour = 0;		//予約終了時
-static int EndMIn = 0;		//予約終了分
-static int Num = 0;			//人数
+		//新規登録で使用する変数
+		static String^ NewId = "";
+		static String^ NewPassword = "";
+
+		//選択部屋番号を保管する変数
+		static int RoomNumber = 0;
+		
+		//予約で使用する変数
+		static String^ Data = "";
+		static String^ StartHour = "";
+		static String^ StartMin = "";
+		static String^ EndHour = "";
+		static String^ EndMin = "";
+		static int Num = 0;
+
+		//認証情報を保管する配列
+		static cli::array<String^, 1>^ UserArray = gcnew cli::array<String^, 1>(100);
+
+		//認証情報配列の最後の要素を指す要素番号
+		static int UserInfoIndex = 0;
+
+		//部屋それぞれのテキストデータを保管する配列
+		static cli::array<String^, 2>^ Room1Array = gcnew cli::array<String^, 2>(100, 5);
+		static cli::array<String^, 2>^ Room2Array = gcnew cli::array<String^, 2>(100, 5);
+		static cli::array<String^, 2>^ Room3Array = gcnew cli::array<String^, 2>(100, 5);
+		static cli::array<String^, 2>^ Room4Array = gcnew cli::array<String^, 2>(100, 5);
+		static cli::array<String^, 2>^ Room5Array = gcnew cli::array<String^, 2>(100, 5);
+		static cli::array<String^, 2>^ Room6Array = gcnew cli::array<String^, 2>(100, 5);
+
+		//部屋配列の最後の要素を指す要素番号
+		static int Room1Index = 0;
+		static int Room2Index = 0;
+		static int Room3Index = 0;
+		static int Room4Index = 0;
+		static int Room5Index = 0;
+		static int Room6Index = 0;
+
+
+		//部屋のファイルからデータを読み込む関数
+		static void ReadDataFromFile(String^ Filename, cli::array<String^, 2>^ DataArray,int% RoomIndex);
+
+		//認証情報ファイルからデータを読み込む関数
+		static void UserDataFromFile(String^ Filename, cli::array<String^, 2>^ DataArray, int% UserIndex);
+
+		//データが重複していないかの関数
+		static int ResearchReserve(int RoomNumber, String^ Date, int Start, int End, int people);
+
+	};
+}
+
