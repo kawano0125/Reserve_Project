@@ -1,5 +1,6 @@
 #pragma once
-
+#include "SearchResultForm.h"
+#include "AllRoomForm.h"
 namespace Project3 {
 
 	using namespace System;
@@ -34,25 +35,53 @@ namespace Project3 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
+	private: System::Windows::Forms::DateTimePicker^ dtp_Calender;
 	protected:
-	private: System::Windows::Forms::MonthCalendar^ monthCalendar1;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
-	private: System::Windows::Forms::ComboBox^ comboBox2;
-	private: System::Windows::Forms::ComboBox^ comboBox3;
-	private: System::Windows::Forms::ComboBox^ comboBox4;
-	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::Label^ label7;
-	private: System::Windows::Forms::Label^ label8;
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Label^ label9;
+
+	protected:
+
+	private: System::Windows::Forms::Button^ b_SearchReturn;
+	private: System::Windows::Forms::ComboBox^ cb_StartHour;
+	private: System::Windows::Forms::ComboBox^ cb_StartMin;
+	private: System::Windows::Forms::ComboBox^ cb_EndHour;
+	private: System::Windows::Forms::ComboBox^ cb_EndMin;
+	private: System::Windows::Forms::TextBox^ tb_NumData;
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::Label^ l_Start;
+	private: System::Windows::Forms::Label^ l_End;
+	private: System::Windows::Forms::Label^ l_Num;
+
+	private: System::Windows::Forms::Label^ l_NumData;
+
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::Label^ l_EndMin;
+
+	private: System::Windows::Forms::Label^ l_StartMin;
+
+	private: System::Windows::Forms::Label^ l_StartHour;
+	private: System::Windows::Forms::Label^ l_EndHour;
+	private: System::Windows::Forms::Button^ b_Search;
+
+
+
+	private: System::Windows::Forms::Label^ l_Date;
+
+
+
 
 	private:
 		/// <summary>
@@ -67,206 +96,301 @@ namespace Project3 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
-			this->monthCalendar1 = (gcnew System::Windows::Forms::MonthCalendar());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
-			this->comboBox3 = (gcnew System::Windows::Forms::ComboBox());
-			this->comboBox4 = (gcnew System::Windows::Forms::ComboBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->dtp_Calender = (gcnew System::Windows::Forms::DateTimePicker());
+			this->b_SearchReturn = (gcnew System::Windows::Forms::Button());
+			this->cb_StartHour = (gcnew System::Windows::Forms::ComboBox());
+			this->cb_StartMin = (gcnew System::Windows::Forms::ComboBox());
+			this->cb_EndHour = (gcnew System::Windows::Forms::ComboBox());
+			this->cb_EndMin = (gcnew System::Windows::Forms::ComboBox());
+			this->tb_NumData = (gcnew System::Windows::Forms::TextBox());
+			this->l_Start = (gcnew System::Windows::Forms::Label());
+			this->l_End = (gcnew System::Windows::Forms::Label());
+			this->l_Num = (gcnew System::Windows::Forms::Label());
+			this->l_NumData = (gcnew System::Windows::Forms::Label());
+			this->l_EndMin = (gcnew System::Windows::Forms::Label());
+			this->l_StartMin = (gcnew System::Windows::Forms::Label());
+			this->l_StartHour = (gcnew System::Windows::Forms::Label());
+			this->l_EndHour = (gcnew System::Windows::Forms::Label());
+			this->b_Search = (gcnew System::Windows::Forms::Button());
+			this->l_Date = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
-			// dateTimePicker1
+			// dtp_Calender
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(18, 140);
-			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(248, 22);
-			this->dateTimePicker1->TabIndex = 0;
+			this->dtp_Calender->Format = System::Windows::Forms::DateTimePickerFormat::Short;
+			this->dtp_Calender->Location = System::Drawing::Point(12, 136);
+			this->dtp_Calender->Name = L"dtp_Calender";
+			this->dtp_Calender->Size = System::Drawing::Size(248, 22);
+			this->dtp_Calender->TabIndex = 0;
+			this->dtp_Calender->Value = System::DateTime(2024, 5, 24, 0, 0, 0, 0);
 			// 
-			// monthCalendar1
+			// b_SearchReturn
 			// 
-			this->monthCalendar1->Location = System::Drawing::Point(18, 174);
-			this->monthCalendar1->Name = L"monthCalendar1";
-			this->monthCalendar1->TabIndex = 1;
+			this->b_SearchReturn->Location = System::Drawing::Point(12, 12);
+			this->b_SearchReturn->Name = L"b_SearchReturn";
+			this->b_SearchReturn->Size = System::Drawing::Size(98, 40);
+			this->b_SearchReturn->TabIndex = 2;
+			this->b_SearchReturn->Text = L"戻る";
+			this->b_SearchReturn->UseVisualStyleBackColor = true;
+			this->b_SearchReturn->Click += gcnew System::EventHandler(this, &SearchForm::b_SearchReturn_Click);
 			// 
-			// button1
+			// cb_StartHour
 			// 
-			this->button1->Location = System::Drawing::Point(12, 12);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(98, 40);
-			this->button1->TabIndex = 2;
-			this->button1->Text = L"戻る";
-			this->button1->UseVisualStyleBackColor = true;
+			this->cb_StartHour->FormattingEnabled = true;
+			this->cb_StartHour->Items->AddRange(gcnew cli::array< System::Object^  >(10) {
+				L"9", L"10", L"11", L"12", L"13", L"14", L"15",
+					L"16", L"17", L"18"
+			});
+			this->cb_StartHour->Location = System::Drawing::Point(290, 135);
+			this->cb_StartHour->Name = L"cb_StartHour";
+			this->cb_StartHour->Size = System::Drawing::Size(75, 23);
+			this->cb_StartHour->TabIndex = 3;
 			// 
-			// comboBox1
+			// cb_StartMin
 			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(306, 192);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(75, 23);
-			this->comboBox1->TabIndex = 3;
+			this->cb_StartMin->FormattingEnabled = true;
+			this->cb_StartMin->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"00", L"30" });
+			this->cb_StartMin->Location = System::Drawing::Point(448, 135);
+			this->cb_StartMin->Name = L"cb_StartMin";
+			this->cb_StartMin->Size = System::Drawing::Size(75, 23);
+			this->cb_StartMin->TabIndex = 4;
 			// 
-			// comboBox2
+			// cb_EndHour
 			// 
-			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Location = System::Drawing::Point(448, 192);
-			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(75, 23);
-			this->comboBox2->TabIndex = 4;
+			this->cb_EndHour->FormattingEnabled = true;
+			this->cb_EndHour->Items->AddRange(gcnew cli::array< System::Object^  >(10) {
+				L"9", L"10", L"11", L"12", L"13", L"14", L"15",
+					L"16", L"17", L"18"
+			});
+			this->cb_EndHour->Location = System::Drawing::Point(290, 272);
+			this->cb_EndHour->Name = L"cb_EndHour";
+			this->cb_EndHour->Size = System::Drawing::Size(75, 23);
+			this->cb_EndHour->TabIndex = 5;
 			// 
-			// comboBox3
+			// cb_EndMin
 			// 
-			this->comboBox3->FormattingEnabled = true;
-			this->comboBox3->Location = System::Drawing::Point(306, 295);
-			this->comboBox3->Name = L"comboBox3";
-			this->comboBox3->Size = System::Drawing::Size(75, 23);
-			this->comboBox3->TabIndex = 5;
+			this->cb_EndMin->FormattingEnabled = true;
+			this->cb_EndMin->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"00", L"30" });
+			this->cb_EndMin->Location = System::Drawing::Point(448, 272);
+			this->cb_EndMin->Name = L"cb_EndMin";
+			this->cb_EndMin->Size = System::Drawing::Size(75, 23);
+			this->cb_EndMin->TabIndex = 6;
 			// 
-			// comboBox4
+			// tb_NumData
 			// 
-			this->comboBox4->FormattingEnabled = true;
-			this->comboBox4->Location = System::Drawing::Point(448, 295);
-			this->comboBox4->Name = L"comboBox4";
-			this->comboBox4->Size = System::Drawing::Size(75, 23);
-			this->comboBox4->TabIndex = 6;
+			this->tb_NumData->Location = System::Drawing::Point(448, 407);
+			this->tb_NumData->Name = L"tb_NumData";
+			this->tb_NumData->Size = System::Drawing::Size(75, 22);
+			this->tb_NumData->TabIndex = 7;
 			// 
-			// textBox1
+			// l_Start
 			// 
-			this->textBox1->Location = System::Drawing::Point(448, 404);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(75, 22);
-			this->textBox1->TabIndex = 7;
+			this->l_Start->AutoSize = true;
+			this->l_Start->Location = System::Drawing::Point(287, 109);
+			this->l_Start->Name = L"l_Start";
+			this->l_Start->Size = System::Drawing::Size(67, 15);
+			this->l_Start->TabIndex = 8;
+			this->l_Start->Text = L"開始時刻";
 			// 
-			// label1
+			// l_End
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(287, 164);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(67, 15);
-			this->label1->TabIndex = 8;
-			this->label1->Text = L"開始時刻";
+			this->l_End->AutoSize = true;
+			this->l_End->Location = System::Drawing::Point(287, 245);
+			this->l_End->Name = L"l_End";
+			this->l_End->Size = System::Drawing::Size(67, 15);
+			this->l_End->TabIndex = 9;
+			this->l_End->Text = L"終了時刻";
 			// 
-			// label2
+			// l_Num
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(287, 264);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(67, 15);
-			this->label2->TabIndex = 9;
-			this->label2->Text = L"終了時刻";
+			this->l_Num->AutoSize = true;
+			this->l_Num->Location = System::Drawing::Point(445, 389);
+			this->l_Num->Name = L"l_Num";
+			this->l_Num->Size = System::Drawing::Size(67, 15);
+			this->l_Num->TabIndex = 10;
+			this->l_Num->Text = L"使用人数";
 			// 
-			// label3
+			// l_NumData
 			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(287, 386);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(67, 15);
-			this->label3->TabIndex = 10;
-			this->label3->Text = L"使用人数";
+			this->l_NumData->AutoSize = true;
+			this->l_NumData->Location = System::Drawing::Point(529, 410);
+			this->l_NumData->Name = L"l_NumData";
+			this->l_NumData->Size = System::Drawing::Size(22, 15);
+			this->l_NumData->TabIndex = 11;
+			this->l_NumData->Text = L"人";
 			// 
-			// label4
+			// l_EndMin
 			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(529, 407);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(22, 15);
-			this->label4->TabIndex = 11;
-			this->label4->Text = L"人";
+			this->l_EndMin->AutoSize = true;
+			this->l_EndMin->Location = System::Drawing::Point(529, 275);
+			this->l_EndMin->Name = L"l_EndMin";
+			this->l_EndMin->Size = System::Drawing::Size(22, 15);
+			this->l_EndMin->TabIndex = 12;
+			this->l_EndMin->Text = L"分";
 			// 
-			// label5
+			// l_StartMin
 			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(529, 298);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(22, 15);
-			this->label5->TabIndex = 12;
-			this->label5->Text = L"分";
+			this->l_StartMin->AutoSize = true;
+			this->l_StartMin->Location = System::Drawing::Point(529, 138);
+			this->l_StartMin->Name = L"l_StartMin";
+			this->l_StartMin->Size = System::Drawing::Size(22, 15);
+			this->l_StartMin->TabIndex = 13;
+			this->l_StartMin->Text = L"分";
 			// 
-			// label6
+			// l_StartHour
 			// 
-			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(529, 195);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(22, 15);
-			this->label6->TabIndex = 13;
-			this->label6->Text = L"分";
+			this->l_StartHour->AutoSize = true;
+			this->l_StartHour->Location = System::Drawing::Point(371, 139);
+			this->l_StartHour->Name = L"l_StartHour";
+			this->l_StartHour->Size = System::Drawing::Size(22, 15);
+			this->l_StartHour->TabIndex = 14;
+			this->l_StartHour->Text = L"時";
 			// 
-			// label7
+			// l_EndHour
 			// 
-			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(387, 195);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(22, 15);
-			this->label7->TabIndex = 14;
-			this->label7->Text = L"時";
+			this->l_EndHour->AutoSize = true;
+			this->l_EndHour->Location = System::Drawing::Point(371, 280);
+			this->l_EndHour->Name = L"l_EndHour";
+			this->l_EndHour->Size = System::Drawing::Size(22, 15);
+			this->l_EndHour->TabIndex = 15;
+			this->l_EndHour->Text = L"時";
 			// 
-			// label8
+			// b_Search
 			// 
-			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(387, 298);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(22, 15);
-			this->label8->TabIndex = 15;
-			this->label8->Text = L"時";
+			this->b_Search->Location = System::Drawing::Point(241, 467);
+			this->b_Search->Name = L"b_Search";
+			this->b_Search->Size = System::Drawing::Size(98, 40);
+			this->b_Search->TabIndex = 16;
+			this->b_Search->Text = L"検索";
+			this->b_Search->UseVisualStyleBackColor = true;
+			this->b_Search->Click += gcnew System::EventHandler(this, &SearchForm::b_Search_Click);
 			// 
-			// button2
+			// l_Date
 			// 
-			this->button2->Location = System::Drawing::Point(375, 479);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(98, 40);
-			this->button2->TabIndex = 16;
-			this->button2->Text = L"検索";
-			this->button2->UseVisualStyleBackColor = true;
-			// 
-			// label9
-			// 
-			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(15, 111);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(52, 15);
-			this->label9->TabIndex = 17;
-			this->label9->Text = L"使用日";
+			this->l_Date->AutoSize = true;
+			this->l_Date->Location = System::Drawing::Point(12, 109);
+			this->l_Date->Name = L"l_Date";
+			this->l_Date->Size = System::Drawing::Size(52, 15);
+			this->l_Date->TabIndex = 17;
+			this->l_Date->Text = L"使用日";
 			// 
 			// SearchForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(582, 553);
-			this->Controls->Add(this->label9);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->label8);
-			this->Controls->Add(this->label7);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->textBox1);
-			this->Controls->Add(this->comboBox4);
-			this->Controls->Add(this->comboBox3);
-			this->Controls->Add(this->comboBox2);
-			this->Controls->Add(this->comboBox1);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->monthCalendar1);
-			this->Controls->Add(this->dateTimePicker1);
+			this->Controls->Add(this->l_Date);
+			this->Controls->Add(this->b_Search);
+			this->Controls->Add(this->l_EndHour);
+			this->Controls->Add(this->l_StartHour);
+			this->Controls->Add(this->l_StartMin);
+			this->Controls->Add(this->l_EndMin);
+			this->Controls->Add(this->l_NumData);
+			this->Controls->Add(this->l_Num);
+			this->Controls->Add(this->l_End);
+			this->Controls->Add(this->l_Start);
+			this->Controls->Add(this->tb_NumData);
+			this->Controls->Add(this->cb_EndMin);
+			this->Controls->Add(this->cb_EndHour);
+			this->Controls->Add(this->cb_StartMin);
+			this->Controls->Add(this->cb_StartHour);
+			this->Controls->Add(this->b_SearchReturn);
+			this->Controls->Add(this->dtp_Calender);
 			this->Name = L"SearchForm";
-			this->Text = L"SearchForm";
+			this->Text = L"検索ページ";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+		public:
+			int StartHourint;		//int型の開始時間（時）の宣言
+			int StartMinint;		//int型の開始時間（分）の宣言
+			int EndHourint;			//int型の終了時間（時）の宣言
+			int EndMinint;			//int型の終了時間（分）の宣言
+			int StartTimeint;		//int型の開始時間（時＋分）の宣言
+			int EndTimeint;			//int型の終了時間（時＋分）の宣言
+			int NumDataint;			//int型の使用人数の宣言
+
+			String^ StartHour;		//String^型の開始時間（時）の宣言
+			String^ StartMin;		//String^型の開始時間（分）の宣言
+			String^ EndHour;		//String^型の終了時間（時）の宣言
+			String^ EndMin;			//String^型の終了時間（分）の宣言
+			String^ Day;			//String^型の開始・終了日の宣言
+			String^ NumData;		//String^型の使用人数の宣言
+			String^ WholeSearchData;//String^型の検索データ(日付＋時間＋人数)の宣言 
+			//yyyy//mm//ddHHMMhhmmNで渡します( HH-開始時 MM-開始分 hh-終了時 mm-終了分 N-人数)
+
+private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		StartHour = gcnew String(this->cb_StartHour->Text); //String^型の開始時間（時）の代入
+		StartHourint = (Convert::ToInt32(this->cb_StartHour->Text)); //int型の開始時間（時）の代入
+	}
+	catch (Exception^ ex) {
+		StartHourint = -1; //エラー処理のために値を渡しています
+	}
+
+	try {
+		StartMin = gcnew String(this->cb_StartMin->Text);
+		StartMinint = (Convert::ToInt32(this->cb_StartMin->Text));
+	}
+	catch (Exception^ ex) {
+		StartMinint = -1;
+	}
+
+	try {
+		EndHour = gcnew String(this->cb_EndHour->Text);
+		EndHourint = (Convert::ToInt32(this->cb_EndHour->Text));
+	}
+	catch (Exception^ ex) {
+		EndHourint = -1;
+	}
+
+	try {
+		EndMin = gcnew String(this->cb_EndMin->Text);
+		EndMinint = (Convert::ToInt32(this->cb_EndMin->Text));
+	}
+	catch (Exception^ ex) {
+		EndMinint = -1;
+	}
+
+	try {
+		NumDataint = (Convert::ToInt32(this->tb_NumData->Text));
+		NumData = gcnew String(this->tb_NumData->Text);
+	}
+	catch (Exception^ ex) {
+		NumDataint = 0;
+	}
+
+	Day = gcnew String(dtp_Calender->Value.ToShortDateString()); //String^型の開始・終了日の代入　形はyyyy//mm//ddです
+
+	StartTimeint = (StartHourint * 100) + StartMinint; //開始時間(時＋分)の代入　（例えば11:30なら1130をint型で渡します）
+	EndTimeint = (EndHourint * 100) + EndMinint; //終了時間(時＋分)の代入　（例えば11:30なら1130をint型で渡します）
+
+	WholeSearchData = Day + StartHour + StartMin + EndHour + EndMin + NumData;
+
+	if ((StartHourint >= 0) &&
+		(StartMinint >= 0) &&
+		(EndHourint >= 0) &&
+		(EndMinint >= 0) &&
+		(NumDataint > 0) &&
+		StartTimeint < EndTimeint
+		) {
+		SearchResultForm^ frm = gcnew SearchResultForm();
+		
+		//必要な処理はここに書き込んでください
+
+		frm->ShowDialog();
+	}
+	else
+	{
+		MessageBox::Show("値が正しく入力されていません");
+	}
+}
+private: System::Void b_SearchReturn_Click(System::Object^ sender, System::EventArgs^ e) {
+	AllRoomForm^ frm = gcnew AllRoomForm();
+	frm->ShowDialog();
+}
+
+};
 }

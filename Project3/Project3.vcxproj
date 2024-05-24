@@ -78,6 +78,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
@@ -124,6 +125,7 @@
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MydataForm.cpp" />
     <ClCompile Include="NewEntryForm.cpp" />
+    <ClCompile Include="PublicData.cpp" />
     <ClCompile Include="ReserveForm.cpp" />
     <ClCompile Include="RoomDatailForm.cpp" />
     <ClCompile Include="SearchForm.cpp" />
@@ -142,6 +144,7 @@
     <ClInclude Include="NewEntryForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="PublicData.h" />
     <ClInclude Include="ReserveForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -165,6 +168,9 @@
     <EmbeddedResource Include="NewEntryForm.resx">
       <DependentUpon>NewEntryForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MydataForm.resx">
+      <DependentUpon>MydataForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RoomDatailForm.resx">
       <DependentUpon>RoomDatailForm.h</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +186,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\..\Desktop\研修報告書\チーム開発演習\背景.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Project3.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

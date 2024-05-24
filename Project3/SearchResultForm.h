@@ -78,6 +78,7 @@ namespace Project3 {
 			// 
 			// b_SearchResultReturn
 			// 
+			this->b_SearchResultReturn->BackColor = System::Drawing::Color::LawnGreen;
 			this->b_SearchResultReturn->Font = (gcnew System::Drawing::Font(L"ÇlÇr ÉSÉVÉbÉN", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
 			this->b_SearchResultReturn->Location = System::Drawing::Point(26, 12);
@@ -85,7 +86,7 @@ namespace Project3 {
 			this->b_SearchResultReturn->Size = System::Drawing::Size(109, 50);
 			this->b_SearchResultReturn->TabIndex = 0;
 			this->b_SearchResultReturn->Text = L"ñﬂÇÈ";
-			this->b_SearchResultReturn->UseVisualStyleBackColor = true;
+			this->b_SearchResultReturn->UseVisualStyleBackColor = false;
 			// 
 			// b_Room1
 			// 
@@ -156,7 +157,7 @@ namespace Project3 {
 			// l_Search
 			// 
 			this->l_Search->AutoSize = true;
-			this->l_Search->Location = System::Drawing::Point(186, 12);
+			this->l_Search->Location = System::Drawing::Point(178, 30);
 			this->l_Search->Name = L"l_Search";
 			this->l_Search->Size = System::Drawing::Size(67, 15);
 			this->l_Search->TabIndex = 7;
@@ -166,6 +167,7 @@ namespace Project3 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::Turquoise;
 			this->ClientSize = System::Drawing::Size(582, 553);
 			this->Controls->Add(this->l_Search);
 			this->Controls->Add(this->b_Room6);

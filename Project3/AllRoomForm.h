@@ -1,8 +1,8 @@
 #pragma once
 #include"search.h"
 #include"MydataForm.h"
-#include"LoginForm.h"
 #include"RoomDatailForm.h"
+#include"PublicData.h"
 namespace Project3 {
 
 	using namespace System;
@@ -37,21 +37,32 @@ namespace Project3 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^ b_Search;
-	private: System::Windows::Forms::Button^ b_Mydata;
-	private: System::Windows::Forms::Button^ b_Logout;
-	private: System::Windows::Forms::Button^ b_Room1;
-	private: System::Windows::Forms::Button^ b_Room2;
-	private: System::Windows::Forms::Button^ b_Room4;
-	private: System::Windows::Forms::Button^ b_Room3;
-	private: System::Windows::Forms::Button^ b_Room6;
+	public: System::Windows::Forms::Button^ b_Search;
+	public: System::Windows::Forms::Button^ b_Mydata;
+	public: System::Windows::Forms::Button^ b_Logout;
+	protected:
+
+
+
+	public: System::Windows::Forms::Button^ b_Room1;
+	private:
+	public: System::Windows::Forms::Button^ b_Room2;
+	public: System::Windows::Forms::Button^ b_Room4;
+	public: System::Windows::Forms::Button^ b_Room3;
+	public: System::Windows::Forms::Button^ b_Room6;
+	public: System::Windows::Forms::Button^ b_Room5;
 
 
 
 
 
 
-	private: System::Windows::Forms::Button^ b_Room5;
+
+
+
+
+
+
 
 
 
@@ -95,9 +106,10 @@ namespace Project3 {
 			this->b_Search->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->b_Search->Font = (gcnew System::Drawing::Font(L"‚l‚r ‚o–¾’©", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->b_Search->Location = System::Drawing::Point(25, 30);
+			this->b_Search->Location = System::Drawing::Point(33, 38);
+			this->b_Search->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->b_Search->Name = L"b_Search";
-			this->b_Search->Size = System::Drawing::Size(150, 50);
+			this->b_Search->Size = System::Drawing::Size(200, 62);
 			this->b_Search->TabIndex = 0;
 			this->b_Search->Text = L"ŒŸõ";
 			this->b_Search->UseVisualStyleBackColor = true;
@@ -113,9 +125,10 @@ namespace Project3 {
 			this->b_Mydata->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->b_Mydata->Font = (gcnew System::Drawing::Font(L"‚l‚r ‚o–¾’©", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->b_Mydata->Location = System::Drawing::Point(225, 30);
+			this->b_Mydata->Location = System::Drawing::Point(300, 38);
+			this->b_Mydata->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->b_Mydata->Name = L"b_Mydata";
-			this->b_Mydata->Size = System::Drawing::Size(150, 50);
+			this->b_Mydata->Size = System::Drawing::Size(200, 62);
 			this->b_Mydata->TabIndex = 1;
 			this->b_Mydata->Text = L"ƒ}ƒCƒy[ƒW";
 			this->b_Mydata->UseVisualStyleBackColor = true;
@@ -131,9 +144,10 @@ namespace Project3 {
 			this->b_Logout->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->b_Logout->Font = (gcnew System::Drawing::Font(L"‚l‚r ‚o–¾’©", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->b_Logout->Location = System::Drawing::Point(425, 30);
+			this->b_Logout->Location = System::Drawing::Point(567, 38);
+			this->b_Logout->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->b_Logout->Name = L"b_Logout";
-			this->b_Logout->Size = System::Drawing::Size(150, 50);
+			this->b_Logout->Size = System::Drawing::Size(200, 62);
 			this->b_Logout->TabIndex = 2;
 			this->b_Logout->Text = L"ƒƒOƒAƒEƒg";
 			this->b_Logout->UseVisualStyleBackColor = true;
@@ -149,11 +163,12 @@ namespace Project3 {
 			this->b_Room1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->b_Room1->Font = (gcnew System::Drawing::Font(L"‚l‚r ‚o–¾’©", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->b_Room1->Location = System::Drawing::Point(50, 170);
+			this->b_Room1->Location = System::Drawing::Point(67, 212);
+			this->b_Room1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->b_Room1->Name = L"b_Room1";
-			this->b_Room1->Size = System::Drawing::Size(200, 70);
+			this->b_Room1->Size = System::Drawing::Size(267, 88);
 			this->b_Room1->TabIndex = 3;
-			this->b_Room1->Text = L"Room1";
+			this->b_Room1->Text = L"‰ï‹cŽº1";
 			this->b_Room1->UseVisualStyleBackColor = true;
 			this->b_Room1->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room1_Click);
 			// 
@@ -168,11 +183,12 @@ namespace Project3 {
 			this->b_Room2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->b_Room2->Font = (gcnew System::Drawing::Font(L"‚l‚r ‚o–¾’©", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->b_Room2->Location = System::Drawing::Point(350, 170);
+			this->b_Room2->Location = System::Drawing::Point(467, 212);
+			this->b_Room2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->b_Room2->Name = L"b_Room2";
-			this->b_Room2->Size = System::Drawing::Size(200, 70);
+			this->b_Room2->Size = System::Drawing::Size(267, 88);
 			this->b_Room2->TabIndex = 4;
-			this->b_Room2->Text = L"Room2";
+			this->b_Room2->Text = L"‰ï‹cŽº2";
 			this->b_Room2->UseVisualStyleBackColor = true;
 			this->b_Room2->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room2_Click);
 			// 
@@ -186,11 +202,12 @@ namespace Project3 {
 			this->b_Room4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->b_Room4->Font = (gcnew System::Drawing::Font(L"‚l‚r ‚o–¾’©", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->b_Room4->Location = System::Drawing::Point(350, 290);
+			this->b_Room4->Location = System::Drawing::Point(467, 362);
+			this->b_Room4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->b_Room4->Name = L"b_Room4";
-			this->b_Room4->Size = System::Drawing::Size(200, 70);
+			this->b_Room4->Size = System::Drawing::Size(267, 88);
 			this->b_Room4->TabIndex = 6;
-			this->b_Room4->Text = L"Room4";
+			this->b_Room4->Text = L"‘åƒz[ƒ‹";
 			this->b_Room4->UseVisualStyleBackColor = true;
 			this->b_Room4->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room4_Click);
 			// 
@@ -204,11 +221,12 @@ namespace Project3 {
 			this->b_Room3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->b_Room3->Font = (gcnew System::Drawing::Font(L"‚l‚r ‚o–¾’©", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->b_Room3->Location = System::Drawing::Point(50, 290);
+			this->b_Room3->Location = System::Drawing::Point(67, 362);
+			this->b_Room3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->b_Room3->Name = L"b_Room3";
-			this->b_Room3->Size = System::Drawing::Size(200, 70);
+			this->b_Room3->Size = System::Drawing::Size(267, 88);
 			this->b_Room3->TabIndex = 5;
-			this->b_Room3->Text = L"Room3";
+			this->b_Room3->Text = L"‘å‰ï‹cŽº";
 			this->b_Room3->UseVisualStyleBackColor = true;
 			this->b_Room3->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room3_Click);
 			// 
@@ -222,11 +240,12 @@ namespace Project3 {
 			this->b_Room6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->b_Room6->Font = (gcnew System::Drawing::Font(L"‚l‚r ‚o–¾’©", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->b_Room6->Location = System::Drawing::Point(350, 410);
+			this->b_Room6->Location = System::Drawing::Point(467, 512);
+			this->b_Room6->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->b_Room6->Name = L"b_Room6";
-			this->b_Room6->Size = System::Drawing::Size(200, 70);
+			this->b_Room6->Size = System::Drawing::Size(267, 88);
 			this->b_Room6->TabIndex = 8;
-			this->b_Room6->Text = L"Room6";
+			this->b_Room6->Text = L"PCŽº";
 			this->b_Room6->UseVisualStyleBackColor = true;
 			this->b_Room6->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room6_Click);
 			// 
@@ -240,19 +259,20 @@ namespace Project3 {
 			this->b_Room5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->b_Room5->Font = (gcnew System::Drawing::Font(L"‚l‚r ‚o–¾’©", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->b_Room5->Location = System::Drawing::Point(50, 410);
+			this->b_Room5->Location = System::Drawing::Point(67, 512);
+			this->b_Room5->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->b_Room5->Name = L"b_Room5";
-			this->b_Room5->Size = System::Drawing::Size(200, 70);
+			this->b_Room5->Size = System::Drawing::Size(267, 88);
 			this->b_Room5->TabIndex = 7;
-			this->b_Room5->Text = L"Room5";
+			this->b_Room5->Text = L"¬‰ï‹cŽº";
 			this->b_Room5->UseVisualStyleBackColor = true;
 			this->b_Room5->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room5_Click);
 			// 
 			// AllRoomForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(584, 561);
+			this->ClientSize = System::Drawing::Size(779, 701);
 			this->Controls->Add(this->b_Room6);
 			this->Controls->Add(this->b_Room5);
 			this->Controls->Add(this->b_Room4);
@@ -262,6 +282,7 @@ namespace Project3 {
 			this->Controls->Add(this->b_Logout);
 			this->Controls->Add(this->b_Mydata);
 			this->Controls->Add(this->b_Search);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;
 			this->Name = L"AllRoomForm";
@@ -270,49 +291,50 @@ namespace Project3 {
 
 		}
 #pragma endregion
-	private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ e) {
 		SearchForm^ frm = gcnew SearchForm();
+		MydataForm^ frm1 = gcnew MydataForm();
+		RoomDatailForm^ frm3 = gcnew RoomDatailForm();
+	private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ e) {
 		frm->ShowDialog();
 	}
 private: System::Void b_Mydata_Click(System::Object^ sender, System::EventArgs^ e) {
-	MydataForm^ frm = gcnew MydataForm();
-	frm->ShowDialog();
+	frm1->ShowDialog();
 }
 private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ e) {
-	LoginForm^ frm = gcnew LoginForm();
-	frm->ShowDialog();
+	this->Close();
+	
 }
-	  public:int RoomNumber = 0;
+	  
 
 private: System::Void b_Room1_Click(System::Object^ sender, System::EventArgs^ e) {
-	int RoomNumber = 1;
-	RoomDatailForm^ frm = gcnew RoomDatailForm();
-	frm->ShowDialog();
+	 RoomNumber = 1;
+	frm3->l_Roomdata->Text = "‰ï‹cŽº1@Žû—el”‚U–¼@ƒ‚ƒjƒ^[Š®”õiŠeŽ©PCŽ‚¿ž‚Ý)";
+	frm3->ShowDialog();
 }
 private: System::Void b_Room2_Click(System::Object^ sender, System::EventArgs^ e) {
-	int RoomNumber = 2;
-	RoomDatailForm^ frm = gcnew RoomDatailForm();
-	frm->ShowDialog();
+	 RoomNumber = 2;
+	frm3->l_Roomdata->Text = "‰ï‹cŽº2@Žû—el”10–¼@ƒ‚ƒjƒ^[&Ú‘±PCŠ®”õ";
+	frm3->ShowDialog();
 }
 private: System::Void b_Room3_Click(System::Object^ sender, System::EventArgs^ e) {
-	int RoomNumber = 3;
-	RoomDatailForm^ frm = gcnew RoomDatailForm();
-	frm->ShowDialog();
+	RoomNumber = 3;
+	frm3->l_Roomdata->Text = "‘å‰ï‹cŽº@Žû—el”15–¼@ƒ‚ƒjƒ^[&Ú‘±PCŠ®”õ";
+	frm3->ShowDialog();
 }
 private: System::Void b_Room4_Click(System::Object^ sender, System::EventArgs^ e) {
-	int RoomNumber = 4;
-	RoomDatailForm^ frm = gcnew RoomDatailForm();
-	frm->ShowDialog();
+    RoomNumber = 4;
+	frm3->l_Roomdata->Text = "‘åƒz[ƒ‹@Žû—el”50–¼@ƒ‚ƒjƒ^[&Ú‘±PCAƒ}ƒCƒNŠ®”õ";
+	frm3->ShowDialog();
 }
 private: System::Void b_Room5_Click(System::Object^ sender, System::EventArgs^ e) {
-	int RoomNumber = 5;
-	RoomDatailForm^ frm = gcnew RoomDatailForm();
-	frm->ShowDialog();
+	RoomNumber = 5;
+	frm3->l_Roomdata->Text = "¬‰ï‹cŽº@Žû—el”4–¼@ƒzƒƒCƒgƒ{[ƒhŠ®”õ";
+	frm3->ShowDialog();
 }
 private: System::Void b_Room6_Click(System::Object^ sender, System::EventArgs^ e) {
-	int RoomNumber = 6;
-	RoomDatailForm^ frm = gcnew RoomDatailForm();
-	frm->ShowDialog();
+	RoomNumber = 6;
+	frm3->l_Roomdata->Text = "PCŽº@ŒÂŽº@MacPCŠ®”õ@AdobeŽg—p‰Â”\";
+	frm3->ShowDialog();
 }
 };
 }

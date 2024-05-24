@@ -1,4 +1,6 @@
 #pragma once
+#include "AllRoomForm.h"
+#include "LoginForm.h"
 
 namespace Project3 {
 
@@ -34,8 +36,11 @@ namespace Project3 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^ b_MydataReturn;
-	private: System::Windows::Forms::Button^ b_Logout;
+	public: System::Windows::Forms::Button^ b_MydataReturn;
+	protected:
+	public: System::Windows::Forms::Button^ b_Logout;
+
+
 	private: System::Windows::Forms::Button^ b_Detail;
 	private: System::Windows::Forms::Button^ b_Delete;
 	protected:
@@ -85,37 +90,41 @@ namespace Project3 {
 			// 
 			this->b_MydataReturn->Location = System::Drawing::Point(12, 12);
 			this->b_MydataReturn->Name = L"b_MydataReturn";
-			this->b_MydataReturn->Size = System::Drawing::Size(75, 23);
+			this->b_MydataReturn->Size = System::Drawing::Size(80, 30);
 			this->b_MydataReturn->TabIndex = 0;
 			this->b_MydataReturn->Text = L"戻る";
 			this->b_MydataReturn->UseVisualStyleBackColor = true;
+			this->b_MydataReturn->Click += gcnew System::EventHandler(this, &MydataForm::b_MydataReturn_Click);
 			// 
 			// b_Logout
 			// 
-			this->b_Logout->Location = System::Drawing::Point(495, 12);
+			this->b_Logout->Location = System::Drawing::Point(490, 12);
 			this->b_Logout->Name = L"b_Logout";
-			this->b_Logout->Size = System::Drawing::Size(75, 23);
+			this->b_Logout->Size = System::Drawing::Size(80, 30);
 			this->b_Logout->TabIndex = 1;
 			this->b_Logout->Text = L"ログアウト";
 			this->b_Logout->UseVisualStyleBackColor = true;
+			this->b_Logout->Click += gcnew System::EventHandler(this, &MydataForm::b_Logout_Click);
 			// 
 			// b_Detail
 			// 
 			this->b_Detail->Location = System::Drawing::Point(183, 478);
 			this->b_Detail->Name = L"b_Detail";
-			this->b_Detail->Size = System::Drawing::Size(75, 23);
+			this->b_Detail->Size = System::Drawing::Size(80, 30);
 			this->b_Detail->TabIndex = 2;
 			this->b_Detail->Text = L"予約詳細";
 			this->b_Detail->UseVisualStyleBackColor = true;
+			this->b_Detail->Click += gcnew System::EventHandler(this, &MydataForm::b_Detail_Click);
 			// 
 			// b_Delete
 			// 
-			this->b_Delete->Location = System::Drawing::Point(311, 478);
+			this->b_Delete->Location = System::Drawing::Point(318, 478);
 			this->b_Delete->Name = L"b_Delete";
-			this->b_Delete->Size = System::Drawing::Size(75, 23);
+			this->b_Delete->Size = System::Drawing::Size(80, 30);
 			this->b_Delete->TabIndex = 3;
 			this->b_Delete->Text = L"予約削除";
 			this->b_Delete->UseVisualStyleBackColor = true;
+			this->b_Delete->Click += gcnew System::EventHandler(this, &MydataForm::b_Delete_Click);
 			// 
 			// l_name
 			// 
@@ -160,9 +169,10 @@ namespace Project3 {
 			// clb_Reservedata
 			// 
 			this->clb_Reservedata->FormattingEnabled = true;
-			this->clb_Reservedata->Location = System::Drawing::Point(127, 206);
+			this->clb_Reservedata->Items->AddRange(gcnew cli::array< System::Object^  >(6) { L"1", L"2", L"3", L"4", L"5", L"..." });
+			this->clb_Reservedata->Location = System::Drawing::Point(85, 192);
 			this->clb_Reservedata->Name = L"clb_Reservedata";
-			this->clb_Reservedata->Size = System::Drawing::Size(325, 225);
+			this->clb_Reservedata->Size = System::Drawing::Size(414, 259);
 			this->clb_Reservedata->TabIndex = 8;
 			// 
 			// MydataForm
@@ -181,10 +191,52 @@ namespace Project3 {
 			this->Controls->Add(this->b_MydataReturn);
 			this->Name = L"MydataForm";
 			this->Text = L"マイページ";
+			this->Load += gcnew System::EventHandler(this, &MydataForm::MydataForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+	private: System::Void b_MydataReturn_Click(System::Object^ sender, System::EventArgs^ e) {
+		AllRoomForm^ all = gcnew AllRoomForm();
+		all->Show();
+	}
+private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ e) {
+	LoginForm^ login = gcnew LoginForm();
+	login->Show();
+}
+private: System::Void b_Detail_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (clb_Reservedata->CheckedItems->Count > 0) {
+		String^ selected = "";
+		for each (Object ^ item in clb_Reservedata->CheckedItems) {
+			selected += item->ToString() + "\n";
+		}
+		MessageBox::Show(selected, "予約確認");
+	}
+	else {
+		MessageBox::Show("予約確認したい科目を選択してください!", "確認");
+	}
+}
+private: System::Void b_Delete_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (clb_Reservedata->CheckedItems->Count > 0) {
+		System::Windows::Forms::DialogResult result = MessageBox::Show("予約キャンセルしますか？", "キャンセル確認",
+			MessageBoxButtons::YesNo, MessageBoxIcon::Warning
+		);
+		if (result == System::Windows::Forms::DialogResult::Yes) {
+			for (int i = clb_Reservedata->CheckedItems->Count - 1; i >= 0; i--) {
+				int index = clb_Reservedata->Items->IndexOf(clb_Reservedata->CheckedItems[i]);
+				clb_Reservedata->Items->RemoveAt(index);
+			}
+		}
+	}
+	else {
+		MessageBox::Show("キャンセルしたい科目を選択してください!", "確認");
+	}
+}
+private: System::Void MydataForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	//this->l_Namedata = ログインフォームからもらう値
+	//this->l_Passworddata = //
+	//this->clb_Reservedata = //
+}
+};
 }
