@@ -201,6 +201,35 @@ private: System::Void b_Login_Click(System::Object^ sender, System::EventArgs^ e
 	AllRoomForm^ frmAll = gcnew AllRoomForm();
 	this->Hide();
 	frmAll->ShowDialog();
+
+	String^ Name;
+	String^ Password;
+	Name = this->tb_UserName->Text;
+	Password = this->tb_UserPassword->Text;
+
+	//ユーザー名の欄とパスワードの欄が空欄でログインボタンが押された時のエラー処理
+	if (Name == "" || Password == "") {
+		MessageBox::Show("ユーザー名とパスワードを入力してください", "エラー", MessageBoxButtons::OK);
+		return;
+	}
+
+	//テキストボックスのデータの取得
+	try {
+		//ユーザー名とパスワードを格納するuserdata.txtを開く
+		System::IO::StreamReader^ reader = gcnew System::IO::StreamReader("./userdata.txt");
+		//userdata.txtに中身がある場合、その値を読み取る
+		if (!reader->EndOfStream) {
+			this->tb_UserName->Text = reader->ReadToEnd();
+			this->tb_UserPassword->Text = reader->ReadToEnd();
+		}
+		//userdata.txtを閉じる
+		reader->Close();
+	}
+	catch (System::IO::FileNotFoundException^ ex) {
+		//ファイルが存在しない場合、初期値0で新たなテキストファイルを作成
+		System::IO::File::AppendAllText("./userdata.txt", "0");
+		System::Diagnostics::Debug::WriteLine("---エラーメッセージ---\n" + ex->Message);
+	}
 }
 };
 }
