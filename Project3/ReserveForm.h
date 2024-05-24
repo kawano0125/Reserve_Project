@@ -399,10 +399,12 @@ private: System::Void b_Reserve_Click(System::Object^ sender, System::EventArgs^
 	else {
 		setday = day.ToString();
 	}
+	String^ setyear = year + "/" + setmonth + "/" + setday;
 	String^ purpose = cb_Purpose->Text;
 
 	// 予約可能か判定
-	int ans = 1;		// 関数記述（河野）
+	
+	int ans = PublicData::ResearchReserve(RoomNumber,setyear,starttime,endtime,num);
 
 	FILE* fp;
 	// ファイルへの書き込み

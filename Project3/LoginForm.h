@@ -1,4 +1,5 @@
 #pragma once
+#include <msclr/marshal_cppstd.h>
 #include "AllroomForm.h"
 #include "NewEntryForm.h"
 #include "PublicData.h"
@@ -196,11 +197,26 @@ private: System::Void b_AllRoom_Click(System::Object^ sender, System::EventArgs^
 		//AllRoomForm‚ð•\Ž¦
 		AllRoomForm^ allroomform = gcnew AllRoomForm();
 		allroomform->ShowDialog();
-
-private: System::Void b_Login_Click(System::Object^ sender, System::EventArgs^ e) {
-	AllRoomForm^ frmAll = gcnew AllRoomForm();
-	this->Hide();
-	frmAll->ShowDialog();
+	}
 }
+private: System::Void b_Login_Click(System::Object^ sender, System::EventArgs^ e) {
+	Id = Convert::ToInt32(this->tb_UserName->Text);
+	String^ idpass = tb_UserName->Text + tb_UserPassword->Text;
+	FILE* fp;
+	if ((fp = fopen("userdata.txt", "r")) == NULL) {
+		MessageBox::Show("er");
+		exit(1);
+	}
+	char userdata[64];
+	while (fgets(userdata, 64, fp) != NULL) {
+		std::string str = std::string(userdata);
+		System::String^ datapass = msclr::interop::marshal_as<System::String^>(str);
+		if (idpass == datapass) {
+			fclose(fp);
+			AllRoomForm^ alfrm = gcnew AllRoomForm();
+			alfrm->ShowDialog();
+		}
+	}
+	}
 };
 }

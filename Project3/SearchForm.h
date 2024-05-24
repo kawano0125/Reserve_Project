@@ -1,6 +1,6 @@
 #pragma once
 #include "SearchResultForm.h"
-
+#include "PublicData.h"
 namespace Project3 {
 
 	using namespace System;
@@ -379,8 +379,12 @@ private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ 
 		SearchResultForm^ frm = gcnew SearchResultForm();
 		
 		//•K—v‚Èˆ—‚Í‚±‚±‚É‘‚«ž‚ñ‚Å‚­‚¾‚³‚¢
+		PublicData::Data = Day;
+		PublicData::StartHour = StartHour + StartMin;
+		PublicData::EndHour = EndHour + EndMin;
+		Num = Convert::ToInt32(NumData);
 
-		//frm->ShowDialog();
+		frm->ShowDialog();
 	}
 	else
 	{

@@ -337,13 +337,15 @@ private: System::Void b_Room4_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void b_Room5_Click(System::Object^ sender, System::EventArgs^ e) {
 	RoomNumber = 5;
-	//frm3->l_Roomdata->Text = "小会議室　収容人数4名　ホワイトボード完備";
-	//frm3->ShowDialog();
+	RoomDatailForm^ frmRoom5 = gcnew RoomDatailForm();
+	frmRoom5->l_Roomdata->Text = "小会議室　収容人数4名　ホワイトボード完備";
+	frmRoom5->ShowDialog();
 }
 private: System::Void b_Room6_Click(System::Object^ sender, System::EventArgs^ e) {
 	RoomNumber = 6;
-	//frm3->l_Roomdata->Text = "PC室　個室　MacPC完備　Adobe使用可能";
-	//frm3->ShowDialog();
+	RoomDatailForm^ frmRoom6 = gcnew RoomDatailForm();
+	frmRoom6->l_Roomdata->Text = "PC室　個室　MacPC完備　Adobe使用可能";
+	frmRoom6->ShowDialog();
 }
 };
 }

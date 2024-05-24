@@ -8,7 +8,6 @@ namespace Project3 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
 	/// <summary>
 	/// SearchResultForm の概要
 	/// </summary>
@@ -21,6 +20,7 @@ namespace Project3 {
 			//
 			//TODO: ここにコンストラクター コードを追加します
 			//
+
 		}
 
 	protected:
@@ -50,7 +50,7 @@ namespace Project3 {
 
 
 
-	private: System::Windows::Forms::Label^ l_Search;
+
 
 
 	private:
@@ -73,7 +73,6 @@ namespace Project3 {
 			this->b_Room3 = (gcnew System::Windows::Forms::Button());
 			this->b_Room5 = (gcnew System::Windows::Forms::Button());
 			this->b_Room6 = (gcnew System::Windows::Forms::Button());
-			this->l_Search = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// b_SearchResultReturn
@@ -154,22 +153,12 @@ namespace Project3 {
 			this->b_Room6->Text = L"Room6";
 			this->b_Room6->UseVisualStyleBackColor = true;
 			// 
-			// l_Search
-			// 
-			this->l_Search->AutoSize = true;
-			this->l_Search->Location = System::Drawing::Point(178, 30);
-			this->l_Search->Name = L"l_Search";
-			this->l_Search->Size = System::Drawing::Size(67, 15);
-			this->l_Search->TabIndex = 7;
-			this->l_Search->Text = L"検索結果";
-			// 
 			// SearchResultForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Turquoise;
 			this->ClientSize = System::Drawing::Size(582, 553);
-			this->Controls->Add(this->l_Search);
 			this->Controls->Add(this->b_Room6);
 			this->Controls->Add(this->b_Room5);
 			this->Controls->Add(this->b_Room3);
@@ -179,11 +168,29 @@ namespace Project3 {
 			this->Controls->Add(this->b_SearchResultReturn);
 			this->Name = L"SearchResultForm";
 			this->Text = L"検索結果";
+			this->Load += gcnew System::EventHandler(this, &SearchResultForm::SearchResultForm_Load);
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
 
+private: System::Void SearchResultForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	String^ path;
+
+	switch (RoomNumber)
+	{
+	case1:
+		PublicData::ReadDataFromFile("room1data.txt", PublicData::Room1Array,PublicData::Room1Index);
+
+	case2:
+	case3:
+	case4:
+	case5:
+	case 6:
+
+	default:
+		break;
+	}
+}
 };
 }
