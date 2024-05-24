@@ -116,11 +116,12 @@ namespace Project3 {
 			// 
 			// dtp_Calender
 			// 
+			this->dtp_Calender->Format = System::Windows::Forms::DateTimePickerFormat::Short;
 			this->dtp_Calender->Location = System::Drawing::Point(12, 136);
 			this->dtp_Calender->Name = L"dtp_Calender";
 			this->dtp_Calender->Size = System::Drawing::Size(248, 22);
 			this->dtp_Calender->TabIndex = 0;
-			this->dtp_Calender->ValueChanged += gcnew System::EventHandler(this, &SearchForm::dtp_Calender_ValueChanged);
+			this->dtp_Calender->Value = System::DateTime(2024, 5, 24, 0, 0, 0, 0);
 			// 
 			// b_SearchReturn
 			// 
@@ -130,6 +131,7 @@ namespace Project3 {
 			this->b_SearchReturn->TabIndex = 2;
 			this->b_SearchReturn->Text = L"戻る";
 			this->b_SearchReturn->UseVisualStyleBackColor = true;
+			this->b_SearchReturn->Click += gcnew System::EventHandler(this, &SearchForm::b_SearchReturn_Click);
 			// 
 			// cb_StartHour
 			// 
@@ -155,6 +157,10 @@ namespace Project3 {
 			// cb_EndHour
 			// 
 			this->cb_EndHour->FormattingEnabled = true;
+			this->cb_EndHour->Items->AddRange(gcnew cli::array< System::Object^  >(10) {
+				L"9", L"10", L"11", L"12", L"13", L"14", L"15",
+					L"16", L"17", L"18"
+			});
 			this->cb_EndHour->Location = System::Drawing::Point(290, 272);
 			this->cb_EndHour->Name = L"cb_EndHour";
 			this->cb_EndHour->Size = System::Drawing::Size(75, 23);
@@ -163,6 +169,7 @@ namespace Project3 {
 			// cb_EndMin
 			// 
 			this->cb_EndMin->FormattingEnabled = true;
+			this->cb_EndMin->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"00", L"30" });
 			this->cb_EndMin->Location = System::Drawing::Point(448, 272);
 			this->cb_EndMin->Name = L"cb_EndMin";
 			this->cb_EndMin->Size = System::Drawing::Size(75, 23);
@@ -255,6 +262,7 @@ namespace Project3 {
 			this->b_Search->TabIndex = 16;
 			this->b_Search->Text = L"検索";
 			this->b_Search->UseVisualStyleBackColor = true;
+			this->b_Search->Click += gcnew System::EventHandler(this, &SearchForm::b_Search_Click);
 			// 
 			// l_Date
 			// 
@@ -294,9 +302,93 @@ namespace Project3 {
 
 		}
 #pragma endregion
+		public:
+			int StartHourint; //int型の開始時間（時）の宣言
+			int StartMinint; //int型の開始時間（分）の宣言
+			int EndHourint; //int型の終了時間（時）の宣言
+			int EndMinint; //int型の終了時間（分）の宣言
+			int StartTimeint; //int型の開始時間（時＋分）の宣言
+			int EndTimeint; //int型の終了時間（時＋分）の宣言
+			int NumDataint; //int型の使用人数の宣言
 
-private: System::Void dtp_Calender_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+			String^ StartHour; //String^型の開始時間（時）の宣言
+			String^ StartMin; //String^型の開始時間（分）の宣言
+			String^ EndHour; //String^型の終了時間（時）の宣言
+			String^ EndMin; //String^型の終了時間（分）の宣言
+			String^ Day; //String^型の開始・終了日の宣言
+			String^ NumData; //String^型の使用人数の宣言
+			String^ WholeSearchData; //String^型の検索データ(日付＋時間＋人数)の宣言 
+			//yyyy//mm//ddHHMMhhmmNで渡します( HH-開始時 MM-開始分 hh-終了時 mm-終了分 N-人数)
 
+private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		StartHour = gcnew String(this->cb_StartHour->Text); //String^型の開始時間（時）の代入
+		StartHourint = (Convert::ToInt32(this->cb_StartHour->Text)); //int型の開始時間（時）の代入
+	}
+	catch (Exception^ ex) {
+		StartHourint = -1; //エラー処理のために値を渡しています
+	}
+
+	try {
+		StartMin = gcnew String(this->cb_StartMin->Text);
+		StartMinint = (Convert::ToInt32(this->cb_StartMin->Text));
+	}
+	catch (Exception^ ex) {
+		StartMinint = -1;
+	}
+
+	try {
+		EndHour = gcnew String(this->cb_EndHour->Text);
+		EndHourint = (Convert::ToInt32(this->cb_EndHour->Text));
+	}
+	catch (Exception^ ex) {
+		EndHourint = -1;
+	}
+
+	try {
+		EndMin = gcnew String(this->cb_EndMin->Text);
+		EndMinint = (Convert::ToInt32(this->cb_EndMin->Text));
+	}
+	catch (Exception^ ex) {
+		EndMinint = -1;
+	}
+
+	try {
+		NumDataint = (Convert::ToInt32(this->tb_NumData->Text));
+		NumData = gcnew String(this->tb_NumData->Text);
+	}
+	catch (Exception^ ex) {
+		NumDataint = 0;
+	}
+
+	Day = gcnew String(dtp_Calender->Value.ToShortDateString()); //String^型の開始・終了日の代入　形はyyyy//mm//ddです
+
+	StartTimeint = (StartHourint * 100) + StartMinint; //開始時間(時＋分)の代入　（例えば11:30なら1130をint型で渡します）
+	EndTimeint = (EndHourint * 100) + EndMinint; //終了時間(時＋分)の代入　（例えば11:30なら1130をint型で渡します）
+
+	WholeSearchData = Day + StartHour + StartMin + EndHour + EndMin + NumData;
+
+	if ((StartHourint >= 0) &&
+		(StartMinint >= 0) &&
+		(EndHourint >= 0) &&
+		(EndMinint >= 0) &&
+		(NumDataint > 0) &&
+		StartTimeint < EndTimeint
+		) {
+		SearchResultForm^ frm = gcnew SearchResultForm();
+		
+		//必要な処理はここに書き込んでください
+
+		frm->ShowDialog();
+	}
+	else
+	{
+		MessageBox::Show("値が正しく入力されていません");
+	}
+}
+private: System::Void b_SearchReturn_Click(System::Object^ sender, System::EventArgs^ e) {
+	AllRoomForm^ frm = gcnew AllRoomForm();
+	frm->ShowDialog();
 }
 };
 }
