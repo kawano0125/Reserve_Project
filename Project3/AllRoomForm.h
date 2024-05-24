@@ -1,7 +1,6 @@
 #pragma once
 #include"search.h"
 #include"MydataForm.h"
-#include"LoginForm.h"
 #include"RoomDatailForm.h"
 #include"PublicData.h"
 namespace Project3 {
@@ -273,7 +272,6 @@ namespace Project3 {
 #pragma endregion
 		SearchForm^ frm = gcnew SearchForm();
 		MydataForm^ frm1 = gcnew MydataForm();
-		LoginForm^ frm2 = gcnew LoginForm();
 		RoomDatailForm^ frm3 = gcnew RoomDatailForm();
 	private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ e) {
 		frm->ShowDialog();
@@ -282,7 +280,7 @@ private: System::Void b_Mydata_Click(System::Object^ sender, System::EventArgs^ 
 	frm1->ShowDialog();
 }
 private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ e) {
-	frm2->ShowDialog();
+	
 }
 	  
 
