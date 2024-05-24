@@ -1,5 +1,6 @@
 #pragma once
-
+#include "SearchResultForm.h"
+#include "AllRoomForm.h"
 namespace Project3 {
 
 	using namespace System;

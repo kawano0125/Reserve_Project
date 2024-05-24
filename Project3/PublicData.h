@@ -1,6 +1,12 @@
 #pragma once
 #include<fstream>
-
+static int RoomNumber;
+static int StartHour;
+static int StartMin;
+static int EndHour;
+static int EndMin;
+static int Num;
+static int Id;
 namespace Project3 {
 	using namespace System;
 	ref class PublicData
@@ -17,7 +23,7 @@ namespace Project3 {
 
 		//選択部屋番号を保管する変数
 		static int RoomNumber = 0;
-		
+
 		//予約で使用する変数
 		static String^ Data = "";
 		static String^ StartHour = "";
@@ -50,10 +56,13 @@ namespace Project3 {
 
 
 		//部屋のファイルからデータを読み込む関数
-		static void ReadDataFromFile(String^ Filename, cli::array<String^, 2>^ DataArray,int% RoomIndex);
+		static void ReadDataFromFile(String^ Filename, cli::array<String^, 2>^ DataArray, int% RoomIndex);
 
 		//認証情報ファイルからデータを読み込む関数
 		static void UserDataFromFile(String^ Filename, cli::array<String^, 2>^ DataArray, int% UserIndex);
 
 		//データが重複していないかの関数
 		static int ResearchReserve(int RoomNumber, String^ Date, int Start, int End, int people);
+		
+	};
+}
