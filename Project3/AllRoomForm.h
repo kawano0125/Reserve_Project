@@ -3,6 +3,7 @@
 #include"MydataForm.h"
 #include"LoginForm.h"
 #include"RoomDatailForm.h"
+#include"PublicData.h"
 namespace Project3 {
 
 	using namespace System;
@@ -153,7 +154,7 @@ namespace Project3 {
 			this->b_Room1->Name = L"b_Room1";
 			this->b_Room1->Size = System::Drawing::Size(200, 70);
 			this->b_Room1->TabIndex = 3;
-			this->b_Room1->Text = L"Room1";
+			this->b_Room1->Text = L"会議室1";
 			this->b_Room1->UseVisualStyleBackColor = true;
 			this->b_Room1->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room1_Click);
 			// 
@@ -172,7 +173,7 @@ namespace Project3 {
 			this->b_Room2->Name = L"b_Room2";
 			this->b_Room2->Size = System::Drawing::Size(200, 70);
 			this->b_Room2->TabIndex = 4;
-			this->b_Room2->Text = L"Room2";
+			this->b_Room2->Text = L"会議室2";
 			this->b_Room2->UseVisualStyleBackColor = true;
 			this->b_Room2->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room2_Click);
 			// 
@@ -190,7 +191,7 @@ namespace Project3 {
 			this->b_Room4->Name = L"b_Room4";
 			this->b_Room4->Size = System::Drawing::Size(200, 70);
 			this->b_Room4->TabIndex = 6;
-			this->b_Room4->Text = L"Room4";
+			this->b_Room4->Text = L"大ホール";
 			this->b_Room4->UseVisualStyleBackColor = true;
 			this->b_Room4->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room4_Click);
 			// 
@@ -208,7 +209,7 @@ namespace Project3 {
 			this->b_Room3->Name = L"b_Room3";
 			this->b_Room3->Size = System::Drawing::Size(200, 70);
 			this->b_Room3->TabIndex = 5;
-			this->b_Room3->Text = L"Room3";
+			this->b_Room3->Text = L"大会議室";
 			this->b_Room3->UseVisualStyleBackColor = true;
 			this->b_Room3->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room3_Click);
 			// 
@@ -226,7 +227,7 @@ namespace Project3 {
 			this->b_Room6->Name = L"b_Room6";
 			this->b_Room6->Size = System::Drawing::Size(200, 70);
 			this->b_Room6->TabIndex = 8;
-			this->b_Room6->Text = L"Room6";
+			this->b_Room6->Text = L"PC室";
 			this->b_Room6->UseVisualStyleBackColor = true;
 			this->b_Room6->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room6_Click);
 			// 
@@ -244,7 +245,7 @@ namespace Project3 {
 			this->b_Room5->Name = L"b_Room5";
 			this->b_Room5->Size = System::Drawing::Size(200, 70);
 			this->b_Room5->TabIndex = 7;
-			this->b_Room5->Text = L"Room5";
+			this->b_Room5->Text = L"小会議室";
 			this->b_Room5->UseVisualStyleBackColor = true;
 			this->b_Room5->Click += gcnew System::EventHandler(this, &AllRoomForm::b_Room5_Click);
 			// 
@@ -270,49 +271,50 @@ namespace Project3 {
 
 		}
 #pragma endregion
-	private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ e) {
 		SearchForm^ frm = gcnew SearchForm();
+		MydataForm^ frm1 = gcnew MydataForm();
+		LoginForm^ frm2 = gcnew LoginForm();
+		RoomDatailForm^ frm3 = gcnew RoomDatailForm();
+	private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ e) {
 		frm->ShowDialog();
 	}
 private: System::Void b_Mydata_Click(System::Object^ sender, System::EventArgs^ e) {
-	MydataForm^ frm = gcnew MydataForm();
-	frm->ShowDialog();
+	frm1->ShowDialog();
 }
 private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ e) {
-	LoginForm^ frm = gcnew LoginForm();
-	frm->ShowDialog();
+	frm2->ShowDialog();
 }
-	  public:int RoomNumber = 0;
+	  
 
 private: System::Void b_Room1_Click(System::Object^ sender, System::EventArgs^ e) {
-	int RoomNumber = 1;
-	RoomDatailForm^ frm = gcnew RoomDatailForm();
-	frm->ShowDialog();
+	 RoomNumber = 1;
+	frm3->l_Roomdata->Text = "会議室1　収容人数６名　モニター完備（各自PC持ち込み)";
+	frm3->ShowDialog();
 }
 private: System::Void b_Room2_Click(System::Object^ sender, System::EventArgs^ e) {
-	int RoomNumber = 2;
-	RoomDatailForm^ frm = gcnew RoomDatailForm();
-	frm->ShowDialog();
+	 RoomNumber = 2;
+	frm3->l_Roomdata->Text = "会議室2　収容人数10名　モニター&接続PC完備";
+	frm3->ShowDialog();
 }
 private: System::Void b_Room3_Click(System::Object^ sender, System::EventArgs^ e) {
-	int RoomNumber = 3;
-	RoomDatailForm^ frm = gcnew RoomDatailForm();
-	frm->ShowDialog();
+	RoomNumber = 3;
+	frm3->l_Roomdata->Text = "大会議室　収容人数15名　モニター&接続PC完備";
+	frm3->ShowDialog();
 }
 private: System::Void b_Room4_Click(System::Object^ sender, System::EventArgs^ e) {
-	int RoomNumber = 4;
-	RoomDatailForm^ frm = gcnew RoomDatailForm();
-	frm->ShowDialog();
+    RoomNumber = 4;
+	frm3->l_Roomdata->Text = "大ホール　収容人数50名　モニター&接続PC、マイク完備";
+	frm3->ShowDialog();
 }
 private: System::Void b_Room5_Click(System::Object^ sender, System::EventArgs^ e) {
-	int RoomNumber = 5;
-	RoomDatailForm^ frm = gcnew RoomDatailForm();
-	frm->ShowDialog();
+	RoomNumber = 5;
+	frm3->l_Roomdata->Text = "小会議室　収容人数4名　ホワイトボード完備";
+	frm3->ShowDialog();
 }
 private: System::Void b_Room6_Click(System::Object^ sender, System::EventArgs^ e) {
-	int RoomNumber = 6;
-	RoomDatailForm^ frm = gcnew RoomDatailForm();
-	frm->ShowDialog();
+	RoomNumber = 6;
+	frm3->l_Roomdata->Text = "PC室　個室　MacPC完備　Adobe使用可能";
+	frm3->ShowDialog();
 }
 };
 }

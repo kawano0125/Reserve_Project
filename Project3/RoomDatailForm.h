@@ -1,5 +1,6 @@
 #pragma once
-
+#include"ReserveForm.h"
+#include"PublicData.h"
 namespace Project3 {
 
 	using namespace System;
@@ -36,9 +37,11 @@ namespace Project3 {
 		}
 	private: System::Windows::Forms::Button^ b_RoomdataReturn;
 	private: System::Windows::Forms::Button^ b_Reserve;
+	public: System::Windows::Forms::Label^ l_Roomdata;
+	private:
 	protected:
 
-	private: System::Windows::Forms::Label^ l_Roomdata;
+
 	private: System::Windows::Forms::ListBox^ lb_ReserveState;
 
 
@@ -84,15 +87,15 @@ namespace Project3 {
 			this->b_Reserve->TabIndex = 1;
 			this->b_Reserve->Text = L"—\–ñ";
 			this->b_Reserve->UseVisualStyleBackColor = true;
+			this->b_Reserve->Click += gcnew System::EventHandler(this, &RoomDatailForm::b_Reserve_Click);
 			// 
 			// l_Roomdata
 			// 
 			this->l_Roomdata->AutoSize = true;
 			this->l_Roomdata->Location = System::Drawing::Point(63, 88);
 			this->l_Roomdata->Name = L"l_Roomdata";
-			this->l_Roomdata->Size = System::Drawing::Size(35, 12);
+			this->l_Roomdata->Size = System::Drawing::Size(0, 12);
 			this->l_Roomdata->TabIndex = 2;
-			this->l_Roomdata->Text = L"label1";
 			this->l_Roomdata->Click += gcnew System::EventHandler(this, &RoomDatailForm::l_Roomdata_Click);
 			// 
 			// lb_ReserveState
@@ -132,5 +135,11 @@ namespace Project3 {
 #pragma endregion
 	private: System::Void l_Roomdata_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void b_Reserve_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (flag == 0) {
+		MessageBox::Show("ƒƒOƒCƒ“‚µ‚Ä‚­‚¾‚³‚¢");
+	}
+
+}
 };
 }
