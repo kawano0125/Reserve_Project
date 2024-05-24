@@ -57,4 +57,3 @@ namespace Project3 {
 
 		//データが重複していないかの関数
 		static int ResearchReserve(int RoomNumber, String^ Date, int Start, int End, int people);
-
