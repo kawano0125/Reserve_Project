@@ -173,11 +173,13 @@ namespace Project3 {
 
 	}
 private: System::Void b_Reserve_Click(System::Object^ sender, System::EventArgs^ e) {
-	//if (flag == 1) {
+	if (flag == 1) {
 		ReserveForm^ frm = gcnew ReserveForm();
 		frm->Show();
+	}
+	else if (flag == 0) {
 		MessageBox::Show("ƒƒOƒCƒ“‚µ‚Ä‚­‚¾‚³‚¢");
-	//}
+	}
 
 }
 	private: System::Void b_RoomdataReturn_Click(System::Object^ sender, System::EventArgs^ e) {
