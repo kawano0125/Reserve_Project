@@ -180,9 +180,10 @@ private: System::Void b_Reserve_Click(System::Object^ sender, System::EventArgs^
 	//}
 
 }
-private: System::Void b_RoomdataReturn_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->Close();
-}
+	private: System::Void b_RoomdataReturn_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+
+	}
 private: System::Void RoomDatailForm_Load(System::Object^ sender, System::EventArgs^ e) {
 
 }

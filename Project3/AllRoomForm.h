@@ -342,7 +342,6 @@ private: System::Void b_Room4_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void b_Room5_Click(System::Object^ sender, System::EventArgs^ e) {
 	RoomNumber = 5;
-	RoomNumber = 0;
 	RoomDatailForm^ frmRoom5 = gcnew RoomDatailForm();
 	frmRoom5->l_Roomdata->Text = "小会議室　収容人数4名　ホワイトボード完備";
 	frmRoom5->ShowDialog();
