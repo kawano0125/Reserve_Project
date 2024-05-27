@@ -304,7 +304,12 @@ namespace Project3 {
 private: System::Void b_Mydata_Click(System::Object^ sender, System::EventArgs^ e) {
 	MydataForm^ frmMydata = gcnew MydataForm();
 	this->Close();
-	frmMydata->Show();
+	if (flag == 0) {
+	MessageBox::Show("ƒƒOƒCƒ“‚µ‚Ä‚­‚¾‚³‚¢");
+	}
+	else if(flag == 1) {
+		frmMydata->Show();
+	}
 }
 private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
