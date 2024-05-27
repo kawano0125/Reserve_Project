@@ -199,7 +199,8 @@ namespace Project3 {
 				sr->Close();
 			}
 			catch (Exception^ e) {
-				throw gcnew Exception("ファイル読み込みエラー" + e->Message);
+				//throw gcnew Exception("ファイル読み込みエラー" + e->Message);
+
 			}
 
 		};
