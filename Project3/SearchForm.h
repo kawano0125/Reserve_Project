@@ -379,10 +379,12 @@ private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ 
 		SearchResultForm^ frm = gcnew SearchResultForm();
 		
 		//•K—v‚Èˆ—‚Í‚±‚±‚É‘‚«ž‚ñ‚Å‚­‚¾‚³‚¢
-		PublicData::Data = Day;
-		PublicData::StartHour = StartHour + StartMin;
-		PublicData::EndHour = EndHour + EndMin;
+		PublicData::Date = Day;
+		//StartHour = StartHour + StartMin;
+		//EndHour = EndHour + EndMin;
 		Num = Convert::ToInt32(NumData);
+		PublicData::Start = StartHourint;
+		PublicData::End = EndHourint;
 
 		frm->ShowDialog();
 	}

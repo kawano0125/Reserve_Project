@@ -12,7 +12,20 @@ namespace Project3 {
 	using namespace System;
 	ref class PublicData
 	{
+		static property PublicData^ Instance {
+			PublicData^ get() {
+				if (instance == nullptr) {
+					instance = gcnew  PublicData();
+				}
+				return instance;
+			}
+		}
+
+	private:
+		static  PublicData^ instance = nullptr;
 	public:
+		static int Start;
+		static int End;
 		//ログインで使用する変数
 		static String^ Id = "";
 		static String^ PassWord;
@@ -26,7 +39,7 @@ namespace Project3 {
 		static int RoomNumber = 0;
 
 		//予約で使用する変数
-		static String^ Data = "";
+		static String^ Date = "";
 		static String^ StartHour = "";
 		static String^ StartMin = "";
 		static String^ EndHour = "";
@@ -64,6 +77,12 @@ namespace Project3 {
 
 		//データが重複していないかの関数
 		static int ResearchReserve(int RoomNumber, String^ Date, int Start, int End, int people);
+
+		// 配列をリストボックスに表示する関数
+		static void LoadDataToListBox(array<String^, 2>^ dataArray, int currentIndex, System::Windows::Forms::ListBox^ listBox);
+
+		// ファイルにデータを書き込む関数
 		
+
 	};
-}
+};

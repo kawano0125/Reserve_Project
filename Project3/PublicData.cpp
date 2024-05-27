@@ -9,11 +9,11 @@ namespace Project3 {
 			while ((line = sr->ReadLine()) != nullptr) {
 				cli::array<String^>^ parts = line->Split(',');
 				if (parts->Length == 5) {
-					DataArray[RoomIndex, 0] = parts[1];
-					DataArray[RoomIndex, 1] = parts[2];
-					DataArray[RoomIndex, 2] = parts[3];
-					DataArray[RoomIndex, 3] = parts[4];
-					DataArray[RoomIndex, 4] = parts[5];
+					DataArray[RoomIndex, 0] = parts[0];
+					DataArray[RoomIndex, 1] = parts[1];
+					DataArray[RoomIndex, 2] = parts[2];
+					DataArray[RoomIndex, 3] = parts[3];
+					DataArray[RoomIndex, 4] = parts[4];
 					RoomIndex++;
 				}
 				else {
@@ -135,6 +135,18 @@ namespace Project3 {
 					else { return 0; }
 				}
 				else { return 0; }
+			}
+		}
+	}
+	void PublicData::LoadDataToListBox(array<String^, 2>^ dataArray, int currentIndex, System::Windows::Forms::ListBox^ listBox)
+	{
+		listBox->Items->Clear();
+		for (int i = 0; i < currentIndex; i++) {
+			if (dataArray[i, 0] == nullptr || dataArray[i, 1] == nullptr || dataArray[i, 2] == nullptr) {
+				System::Diagnostics::Debug::WriteLine("Null value in dataArray at index: " + i);
+			}
+			else {
+				listBox->Items->Add("—\–ñ: " + dataArray[i, 0] + ", " + dataArray[i, 1] + ", " + dataArray[i, 2]+","+ dataArray[i, 3] + ", " + dataArray[i, 4]);
 			}
 		}
 	}

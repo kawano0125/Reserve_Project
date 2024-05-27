@@ -23,6 +23,7 @@ namespace Project3 {
 		LoginForm(void)
 		{
 			InitializeComponent();
+			LoadFile();
 			//
 			//TODO: ここにコンストラクター コードを追加します
 			//
@@ -60,7 +61,7 @@ namespace Project3 {
 		/// 必要なデザイナー変数です。
 		/// </summary>
 		System::ComponentModel::Container ^components;
-		
+		int Index;
 		int room1index = 0;
 		int room2index = 0;
 		int room3index = 0;
@@ -175,6 +176,59 @@ namespace Project3 {
 
 		}
 #pragma endregion
+		void ReadDataFromFile(String^ Filename, cli::array<String^, 2>^ DataArray, int% RoomIndex) {
+			try {
+				//StreamReaderを使ってファイルから読み込む
+				System::IO::StreamReader^ sr = gcnew System::IO::StreamReader(Filename);
+				String^ line;
+
+				while ((line = sr->ReadLine()) != nullptr) {
+					cli::array<String^>^ parts = line->Split(',');
+					if (parts->Length == 5) {
+						DataArray[RoomIndex, 0] = parts[0];
+						DataArray[RoomIndex, 1] = parts[1];
+						DataArray[RoomIndex, 2] = parts[2];
+						DataArray[RoomIndex, 3] = parts[3];
+						DataArray[RoomIndex, 4] = parts[4];
+						RoomIndex++;
+					}
+					else {
+						throw gcnew Exception("データ配列がいっぱいです");
+					}
+				}
+				sr->Close();
+			}
+			catch (Exception^ e) {
+				throw gcnew Exception("ファイル読み込みエラー" + e->Message);
+			}
+
+		};
+		void LoadFile() {
+			//ファイル1からデータを読み込んでリストボックス2に表示
+			ReadDataFromFile("room1data.txt", PublicData::Room1Array, PublicData::Room1Index);
+			//PublicData::LoadDataToListBox(PublicData::Room1Array, Index, listBox1);
+
+			// ファイル2からデータを読み込んでリストボックス2に表示
+			ReadDataFromFile("room2data.txt", PublicData::Room1Array, PublicData::Room2Index);
+			//PublicData::LoadDataToListBox(PublicData::Room2Array, Index, listBox1);
+
+			// ファイル3からデータを読み込んでリストボックス3に表示
+			ReadDataFromFile("room3data.txt", PublicData::Room1Array, PublicData::Room3Index);
+			//PublicData::LoadDataToListBox(PublicData::Room3Array, Index, listBox1);
+
+			// ファイル4からデータを読み込んでリストボックス4に表示
+			ReadDataFromFile("room4data.txt", PublicData::Room1Array, PublicData::Room4Index);
+			//PublicData::LoadDataToListBox(PublicData::Room4Array, Index, listBox1);
+
+			// ファイル5からデータを読み込んでリストボックス5に表示
+			ReadDataFromFile("room5data.txt", PublicData::Room1Array, PublicData::Room5Index);
+			//PublicData::LoadDataToListBox(PublicData::Room5Array, Index, listBox1);
+
+			// ファイル6からデータを読み込んでリストボックス6に表示
+			ReadDataFromFile("room6data.txt", PublicData::Room1Array, PublicData::Room6Index);
+			//PublicData::LoadDataToListBox(PublicData::Room6Array, Index, listBox1);
+		}
+
 	private: System::Void b_NewEntry_Click(System::Object^ sender, System::EventArgs^ e) {
 		//ログイン画面を非表示
 		this->Visible = false;

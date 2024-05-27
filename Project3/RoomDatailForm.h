@@ -22,6 +22,7 @@ namespace Project3 {
 			//
 			//TODO: ここにコンストラクター コードを追加します
 			//
+			LoadData();
 		}
 
 	protected:
@@ -135,6 +136,38 @@ namespace Project3 {
 
 		}
 #pragma endregion
+		void LoadDataToListBox(cli::array<String^, 2>^ dataArray, int currentIndex) {
+			for (int i = 0; i < currentIndex; i++) {
+				lb_ReserveState->Items->Add("予約: " + dataArray[i, 1] + ", " + dataArray[i, 2] + ", " + dataArray[i, 3] + dataArray[i, 4] + ", " + dataArray[i, 5]);
+			}
+		}
+		void LoadData() {
+			lb_ReserveState->Items->Clear();
+			switch (RoomNumber)
+			{
+			case 1:
+				LoadDataToListBox(PublicData::Room1Array, PublicData::Room1Index);
+				break;
+			case 2:
+				LoadDataToListBox(PublicData::Room2Array, PublicData::Room2Index);
+				break;
+			case 3:
+				LoadDataToListBox(PublicData::Room3Array, PublicData::Room3Index);
+				break;
+			case 4:
+				LoadDataToListBox(PublicData::Room4Array, PublicData::Room4Index);
+				break;
+			case 5:
+				LoadDataToListBox(PublicData::Room5Array, PublicData::Room5Index);
+				break;
+			case 6:
+				LoadDataToListBox(PublicData::Room6Array, PublicData::Room6Index);
+				break;
+			default:
+				lb_ReserveState->Items->Add("該当の部屋の予約はありません");
+				break;
+			}
+		}
 	private: System::Void l_Roomdata_Click(System::Object^ sender, System::EventArgs^ e) {
 		
 
