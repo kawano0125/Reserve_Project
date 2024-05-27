@@ -298,7 +298,7 @@ namespace Project3 {
 	private: System::Void b_Search_Click(System::Object^ sender, System::EventArgs^ e) {
 		SearchForm^ frmSearch = gcnew SearchForm();
 		this->Close();
-		frmSearch->Show();
+		frmSearch->ShowDialog();
 		
 	}
 private: System::Void b_Mydata_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -308,7 +308,7 @@ private: System::Void b_Mydata_Click(System::Object^ sender, System::EventArgs^ 
 	}
 	else if(flag == 1) {
 		this->Close();
-		frmMydata->Show();
+		frmMydata->ShowDialog();
 	}
 }
 private: System::Void b_Logout_Click(System::Object^ sender, System::EventArgs^ e) {
